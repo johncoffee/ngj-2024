@@ -5,6 +5,8 @@ extends Node3D
 
 
 func _ready() -> void:
+    get_viewport().disable_3d = true
+    
     for i in range(local_player_count):
         var player_scene = load("res://player.tscn")
         var player: PathFollow3D = player_scene.instantiate()
