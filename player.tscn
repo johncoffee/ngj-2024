@@ -29,7 +29,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 0.3, 0, 0, 0, 1, 0, 0.163024, 0)
 texture = ExtResource("2_puqbr")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.701859, 0.8, 2.08165e-12)
 fov = 120.0
 
