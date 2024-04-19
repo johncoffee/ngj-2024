@@ -12,6 +12,11 @@ var player_id: int
 @onready var shoot_action: = "p%d.shoot" % player_id
 
 
+func _ready() -> void:
+    $Camera3D.cull_mask &= ~(1 << player_id)
+    $View/Sprite3D.layers = (1 << player_id)
+
+
 func _process(delta: float) -> void:
     var movement_input: = Input.get_axis(move_left_action, move_right_action)
     progress += movement_input * speed * delta

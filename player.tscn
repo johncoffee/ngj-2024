@@ -14,13 +14,14 @@ size = Vector3(1, 0.3, 1)
 [node name="Player" type="PathFollow3D"]
 rotation_mode = 1
 use_model_front = true
+loop = false
 script = ExtResource("1_3stba")
 
 [node name="View" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="View"]
-transform = Transform3D(1, 0, 0, 0, 0.3, 0, 0, 0, 1, 0, 0.185616, 0)
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1, 1.12802e-08, 0.540451, -0.258061)
 texture = ExtResource("1_infwm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="View"]
@@ -29,7 +30,8 @@ mesh = SubResource("CylinderMesh_a1edi")
 skeleton = NodePath("../..")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.791088, 0.8, 2.08165e-12)
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.701859, 0.8, 2.08165e-12)
+fov = 120.0
 
 [node name="Area3D" type="Area3D" parent="."]
 
