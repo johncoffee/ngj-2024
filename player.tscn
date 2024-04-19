@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bglh1hqu3oedx"]
+[gd_scene load_steps=5 format=3 uid="uid://bglh1hqu3oedx"]
 
+[ext_resource type="Script" path="res://player.gd" id="1_3stba"]
 [ext_resource type="Texture2D" uid="uid://8kobprnrndrf" path="res://icon.svg" id="1_infwm"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_a1edi"]
@@ -7,7 +8,11 @@ top_radius = 0.1
 bottom_radius = 0.1
 height = 0.5
 
-[node name="Player" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_4xuhm"]
+size = Vector3(1, 0.3, 1)
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_3stba")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.3, 0, 0, 0, 1, 0, 0.185616, 0)
@@ -19,3 +24,7 @@ mesh = SubResource("CylinderMesh_a1edi")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.799945, -0.641178)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.219665, 0)
+shape = SubResource("BoxShape3D_4xuhm")

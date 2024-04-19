@@ -1,8 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cr7id8f31w8jl"]
+[gd_scene load_steps=6 format=3 uid="uid://cr7id8f31w8jl"]
 
 [ext_resource type="Texture2D" uid="uid://8kobprnrndrf" path="res://icon.svg" id="1_g2uwq"]
 [ext_resource type="Script" path="res://main.gd" id="1_q3kcy"]
 [ext_resource type="PackedScene" uid="uid://bglh1hqu3oedx" path="res://player.tscn" id="2_ayxwe"]
+
+[sub_resource type="Curve3D" id="Curve3D_04o2k"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -7, 2.08165e-12, -6, 0, 0, 0, 0, 0, 0, -7, 2.08165e-12, 6),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_s762y"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -6, 2.08165e-12, -7, 0, 0, 0, 0, 0, 0, 6, 2.08165e-12, -7),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_q3kcy")
@@ -47,3 +61,15 @@ handle_input_locally = false
 size = Vector2i(574, 648)
 size_2d_override_stretch = true
 render_target_update_mode = 4
+
+[node name="Path1" type="Path3D" parent="."]
+curve = SubResource("Curve3D_04o2k")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path1"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -7, 2.08165e-12, -6)
+
+[node name="Path2" type="Path3D" parent="."]
+curve = SubResource("Curve3D_s762y")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 2.08165e-12, -7)

@@ -1,6 +1,11 @@
 extends Node3D
 
 
+func _enter_tree() -> void:
+    $Player1.player_id = 1
+    $Player2.player_id = 2
+
+
 func _ready() -> void:
     var cam1 = $Player1/Camera3D.get_camera_rid()
     var cam2 = $Player2/Camera3D.get_camera_rid()
