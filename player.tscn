@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bglh1hqu3oedx"]
+
+[ext_resource type="Texture2D" uid="uid://8kobprnrndrf" path="res://icon.svg" id="1_infwm"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_a1edi"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.5
+
+[node name="Player" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.3, 0, 0, 0, 1, 0, 0.185616, 0)
+texture = ExtResource("1_infwm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.316486, 0.223429)
+mesh = SubResource("CylinderMesh_a1edi")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.799945, -0.641178)
