@@ -10,13 +10,16 @@ var player_id: int
 @onready var move_left_action: = "p%d.move.left" % player_id
 @onready var move_right_action: = "p%d.move.right" % player_id
 @onready var shoot_action: = "p%d.shoot" % player_id
+@onready var opponent_node_name: = "%" + "Player%d" % (player_id % 2 + 1)
 
 
 func _ready() -> void:
     $Camera3D.cull_mask &= ~(1 << player_id)
     $View/Sprite3D.layers = (1 << player_id)
+    progress_ratio = 0.5
 
 
 func _process(delta: float) -> void:
     var movement_input: = Input.get_axis(move_left_action, move_right_action)
     progress += movement_input * speed * delta
+    
