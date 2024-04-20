@@ -15,10 +15,14 @@ var player_id: int
 func _ready() -> void:
     $Camera.current = false
     $Camera.cull_mask = 0b1 | 1 << player_id
-    $View/Sprite3D.layers = (1 << player_id)
 
 
 func _process(delta: float) -> void:
     var movement_input: = Input.get_axis(move_left_action, move_right_action)
     progress += movement_input * speed * delta
+    
+    if Input.is_action_just_pressed(shoot_action):
+        var collider = $RayCast.get_collider()
+        
+        if collider: collider.free()
     

@@ -38,3 +38,7 @@ fov = 120.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.219665, 0)
 shape = SubResource("BoxShape3D_4xuhm")
+
+[node name="RayCast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.108728, 0.337792, 0)
+target_position = Vector3(20, 2.08165e-12, 2.08165e-12)
