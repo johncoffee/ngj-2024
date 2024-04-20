@@ -1,7 +1,11 @@
 extends PathFollow3D
 
-@export var damage: float = 100
-@export var bullets: int = 1
+# player state stuff
+var bullets: int = 1
+# proxy for currently equipped weapon
+func gunDamage():
+	return 100
+
 @export var speed: float = 10.0
 
 var player_id: int
@@ -17,5 +21,12 @@ func _process(delta: float) -> void:
 	progress += movement_input * speed * delta
 
 func shoot():
-	# spawn bullet
 	bullets -= 1
+	var projectile = load("res://bullet/bullet.tscn")
+	var bullet = projectile.instance()
+	
+	# find forward relative to gun
+	bullet.velocity = Vector3(0, 0, -1)
+	bullet.max_damage = gunDamage()
+	assert($bullets is Sprite3D, "did you forget to add bullets container to main?")
+	($bullets as Sprite3D).add_child(bullet)

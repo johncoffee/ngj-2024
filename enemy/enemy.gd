@@ -8,8 +8,7 @@ func _ready():
 # we expecrt a Sprite3D in the tree
 	assert(sprite is Sprite3D)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 # maps to space/enter
 	if Input.is_action_just_pressed("ui_accept"):
 		flip()
