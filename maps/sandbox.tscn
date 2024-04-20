@@ -46,6 +46,14 @@ position = Vector2(664, 295)
 
 [node name="EnemyRoot" type="Node" parent="."]
 
+[node name="BatRoot" type="Node" parent="."]
+
+[node name="BatSwarm" parent="BatRoot" instance=ExtResource("9_nar3i")]
+position = Vector2(-180, 1127)
+
+[node name="BatSwarm2" parent="BatRoot" instance=ExtResource("9_nar3i")]
+position = Vector2(1249, -507)
+
 [node name="GroundProtoAkien" type="StaticBody2D" parent="."]
 position = Vector2(960, 540)
 collision_layer = 4
@@ -86,9 +94,3 @@ rotation = 2.2169
 [node name="Projector4" parent="Projectors" instance=ExtResource("6_ybpnd")]
 position = Vector2(962, 1009)
 rotation = 2.10692
-
-[node name="BatSwarm" parent="." instance=ExtResource("9_nar3i")]
-position = Vector2(590, 580)
-
-[node name="BatSwarm2" parent="." instance=ExtResource("9_nar3i")]
-position = Vector2(1010, 172)
