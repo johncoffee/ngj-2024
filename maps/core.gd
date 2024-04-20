@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends PhysicsBody2D
 
 
 @export var max_charge = 10000

@@ -24,7 +24,7 @@ animations = [{
 size = Vector2(64, 64)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ffqs3"]
-radius = 58.0775
+radius = 89.0
 
 [node name="Vampire" type="CharacterBody2D"]
 script = ExtResource("1_l58px")
@@ -43,6 +43,7 @@ stream = ExtResource("4_eymrl")
 autoplay = true
 
 [node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 0
 monitorable = false
 script = ExtResource("4_645gk")
 

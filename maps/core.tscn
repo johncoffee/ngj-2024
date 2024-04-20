@@ -22,7 +22,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Core" type="StaticBody2D"]
+[node name="Core" type="CharacterBody2D"]
 position = Vector2(960, 541)
 script = ExtResource("1_fp401")
 metadata/_edit_vertical_guides_ = [945.0, 937.0]
