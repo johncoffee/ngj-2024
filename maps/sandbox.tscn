@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cr7id8f31w8jl"]
+[gd_scene load_steps=12 format=3 uid="uid://cr7id8f31w8jl"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ls40i"]
 [ext_resource type="PackedScene" uid="uid://cvuhj617s0g1q" path="res://ui/split_screen.tscn" id="2_i13bc"]
+[ext_resource type="Script" path="res://enemies/spanwer.gd" id="2_rvij0"]
 [ext_resource type="Texture2D" uid="uid://8kobprnrndrf" path="res://icon.svg" id="2_w4s8u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wowr3"]
@@ -49,6 +50,11 @@ point_count = 2
 script = ExtResource("1_ls40i")
 local_player_count = 2
 
+[node name="EnemySpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://enemies/enemy.tscn")
+spawn_path = NodePath("..")
+script = ExtResource("2_rvij0")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
@@ -61,6 +67,7 @@ environment = SubResource("Environment_7ugqw")
 [node name="Floor" type="Sprite3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 0, 0, 0)
 modulate = Color(0.22, 0.22, 0.22, 1)
+render_priority = -1
 texture = ExtResource("2_w4s8u")
 
 [node name="Path1" type="Path3D" parent="."]

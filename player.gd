@@ -14,7 +14,7 @@ var player_id: int
 
 func _ready() -> void:
     $Camera.current = false
-    $Camera.cull_mask &= ~(1 << player_id)
+    $Camera.cull_mask = 0b1 | 1 << player_id
     $View/Sprite3D.layers = (1 << player_id)
 
 
