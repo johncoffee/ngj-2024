@@ -27,7 +27,7 @@ func _process(delta):
 		target.apply_damage(damage)
 
 func apply_charge(value: float) -> void:
-    if current_health - value <= 0:
-        EnemyEvents.enemy_died.emit()
+	if current_health - value <= 0:
+		EnemyEvents.enemy_died.emit()
 
-    current_health -= value
+	current_health -= value
