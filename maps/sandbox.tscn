@@ -14,7 +14,7 @@ script = ExtResource("1_swf8v")
 interval = 1.0
 enemy = ExtResource("2_4dy0r")
 enemy_parent = NodePath("..")
-enemy_target = NodePath("../Core/CollisionShape2D")
+enemy_target = NodePath("../Core")
 
 [node name="Core" type="Area2D" parent="."]
 position = Vector2(325, 164)
