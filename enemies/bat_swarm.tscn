@@ -16,8 +16,7 @@ emission_sphere_radius = 128.0
 orbit_velocity_min = -0.228
 orbit_velocity_max = 0.253
 gravity = Vector3(0, 0, 0)
-scale_min = 0.2
-scale_max = 0.3
+scale_max = 1.5
 hue_variation_min = 0.1
 hue_variation_max = 0.1
 anim_speed_min = 10.0
@@ -39,7 +38,7 @@ script = ExtResource("1_a0o32")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_tv1c1")
-position = Vector2(-1, 0)
+scale = Vector2(3, 3)
 amount = 40
 process_material = SubResource("ParticleProcessMaterial_hd3yh")
 texture = ExtResource("2_puirq")
