@@ -22,7 +22,7 @@ func _process(delta):
 		var pan_direction := Input.get_axis("projector.pan.left", "projector.pan.right")
 		close_projector.pan(pan_direction * delta)
 
-		if close_projector.broken and Input.is_action_pressed("projector.repair"):
+		if Input.is_action_pressed("projector.repair"):
 			close_projector.repair(delta)
 		elif Input.is_action_just_pressed("projector.toggle"):
 			if not close_projector.broken:

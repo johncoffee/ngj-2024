@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://qmlivrqeg4pq"]
+[gd_scene load_steps=12 format=3 uid="uid://qmlivrqeg4pq"]
 
 [ext_resource type="Script" path="res://enemies/enemy_spawner.gd" id="1_swf8v"]
 [ext_resource type="Texture2D" uid="uid://dtgj3mhr84jna" path="res://textures/turret/turret_001.png" id="3_fqqs2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cfkphrbpw5t26" path="res://textures/turret/turret_002.png" id="4_s3wxu"]
 [ext_resource type="PackedScene" uid="uid://yrrfmbliq41n" path="res://players/mirror_player.tscn" id="5_jj7na"]
 [ext_resource type="PackedScene" uid="uid://dq64kjqwly66a" path="res://maps/projector.tscn" id="6_ybpnd"]
+[ext_resource type="PackedScene" uid="uid://dwg8etvs2mqwq" path="res://enemies/bat_swarm.tscn" id="9_nar3i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvpnt"]
 radius = 15.0
@@ -113,3 +114,9 @@ rotation = 1.56141
 [node name="Projector4" parent="Projectors" instance=ExtResource("6_ybpnd")]
 position = Vector2(962, 1009)
 rotation = 3.13601
+
+[node name="BatSwarm" parent="." instance=ExtResource("9_nar3i")]
+position = Vector2(590, 580)
+
+[node name="BatSwarm2" parent="." instance=ExtResource("9_nar3i")]
+position = Vector2(1010, 172)

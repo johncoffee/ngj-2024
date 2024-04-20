@@ -37,7 +37,7 @@ func _ready():
 		hp = randf_range(max_hp / 2.0, max_hp)
 
 
-func damage(amount: int):
+func damage(amount: float):
 	hp = max(hp - amount, 0)
 	if hp == 0:
 		broken = true
