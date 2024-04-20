@@ -50,7 +50,7 @@ func damage(amount: float):
 	hp = max(hp - amount, 0)
 	if hp == 0:
 		broken = true
-
+	$AudioStreamPlayer2D.play()
 
 func repair(delta: float):
 	if hp < max_hp:
