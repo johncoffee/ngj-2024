@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwg8etvs2mqwq"]
+
+[ext_resource type="Script" path="res://enemies/bat_swarm.gd" id="1_a0o32"]
+[ext_resource type="Texture2D" uid="uid://7qvs0w3dc4kn" path="res://icon.svg" id="1_e1ddf"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hd3yh"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 128.0
+orbit_velocity_min = -0.228
+orbit_velocity_max = 0.253
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.3
+hue_variation_min = 0.1
+hue_variation_max = 0.1
+turbulence_enabled = true
+turbulence_noise_strength = 5.0
+turbulence_influence_min = 0.2
+turbulence_influence_max = 0.509
+turbulence_initial_displacement_min = -7.3
+turbulence_initial_displacement_max = 7.3
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qiw3g"]
+radius = 99.0808
+
+[node name="BatSwarm" type="Node2D"]
+script = ExtResource("1_a0o32")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_hd3yh")
+texture = ExtResource("1_e1ddf")
+lifetime = 20.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_qiw3g")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

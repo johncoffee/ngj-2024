@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://dq64kjqwly66a"]
+
+[ext_resource type="Script" path="res://maps/projector.gd" id="1_14a2k"]
+[ext_resource type="Texture2D" uid="uid://70mha7amjdxi" path="res://textures/projector.png" id="2_eagai"]
+[ext_resource type="Texture2D" uid="uid://bf0hnncoui0d3" path="res://textures/projector_closed.png" id="3_1fb0u"]
+[ext_resource type="Texture2D" uid="uid://bmwjkorvpa4ve" path="res://akien/project_beam_proto_akien.png" id="3_tk0yv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_titmn"]
+size = Vector2(64, 64)
+
+[node name="Projector" type="Area2D"]
+script = ExtResource("1_14a2k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_titmn")
+
+[node name="SpriteOpen" type="Sprite2D" parent="."]
+modulate = Color(0.935553, 0.958718, 7.70092e-07, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("2_eagai")
+
+[node name="SpriteClosed" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.935553, 0.958718, 7.70092e-07, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("3_1fb0u")
+
+[node name="LightBeam" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.176471)
+position = Vector2(6.0008, 314)
+rotation = 3.14159
+texture = ExtResource("3_tk0yv")
+
+[node name="LightArea" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LightArea"]
+polygon = PackedVector2Array(-63, 57, -85, 545, 0, 585, 102, 545, 62, 57)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -40.0
+offset_top = -80.0
+offset_right = 40.0
+offset_bottom = -70.0
+step = 1.0
+show_percentage = false
+
+[connection signal="body_entered" from="LightArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="LightArea" to="." method="_on_area_2d_body_exited"]

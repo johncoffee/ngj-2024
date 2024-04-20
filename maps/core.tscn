@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://drx4yr5iacw6h"]
+
+[ext_resource type="Script" path="res://maps/core.gd" id="1_fp401"]
+[ext_resource type="Texture2D" uid="uid://dtgj3mhr84jna" path="res://textures/turret/turret_001.png" id="1_m5n1r"]
+[ext_resource type="Texture2D" uid="uid://cfkphrbpw5t26" path="res://textures/turret/turret_002.png" id="2_oof8m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iqmug"]
+radius = 31.0161
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ujxgj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m5n1r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_oof8m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Core" type="StaticBody2D"]
+position = Vector2(960, 541)
+script = ExtResource("1_fp401")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, -2)
+shape = SubResource("CircleShape2D_iqmug")
+debug_color = Color(0.894118, 0.298039, 0.309804, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -44)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_ujxgj")
+autoplay = "default"
+frame_progress = 0.871884

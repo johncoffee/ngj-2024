@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d4i4f3741o1y2"]
+
+[node name="Line2D" type="Line2D"]
+points = PackedVector2Array(0, 0, 0, 0)
+default_color = Color(1, 1, 0, 1)
+
+[node name="RayCast" type="RayCast2D" parent="."]
