@@ -15,7 +15,8 @@ func _process(delta: float) -> void:
 		Input.get_axis("mirror.move.up", "mirror.move.down")
 	)
 	
-	position += movement * speed * delta
+	velocity = movement * speed
+	move_and_slide()
 	
 	var rotation = Input.get_axis("mirror.move.rotate.left", "mirror.move.rotate.right")
 	$MirrorRoot.rotate(rotation * rotation_speed * delta)

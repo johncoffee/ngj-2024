@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dq64kjqwly66a" path="res://maps/projector.tscn" id="6_ybpnd"]
 [ext_resource type="PackedScene" uid="uid://dwg8etvs2mqwq" path="res://enemies/bat_swarm.tscn" id="9_nar3i"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_05bvq"]
-radius = 432.042
+[sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_f6ro5"]
+segments = PackedVector2Array(1000, 150, 800, 150, 800, 150, 600, 200, 600, 200, 470, 300, 470, 300, 420, 450, 420, 450, 400, 600, 400, 600, 440, 750, 440, 750, 600, 900, 600, 900, 800, 970, 800, 970, 1000, 980, 1000, 980, 1200, 940, 1200, 940, 1400, 800, 1400, 800, 1480, 660, 1480, 660, 1480, 550, 1480, 550, 1420, 350, 1420, 350, 1200, 200, 1200, 200, 1000, 150)
 
 [node name="Sandbox" type="Node2D"]
 
@@ -72,26 +72,31 @@ position = Vector2(-180, 1127)
 [node name="BatSwarm2" parent="BatRoot" instance=ExtResource("9_nar3i")]
 position = Vector2(1249, -507)
 
-[node name="GroundProtoAkien" type="StaticBody2D" parent="."]
+[node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(960, 540)
 collision_layer = 2
 collision_mask = 2
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="GroundProtoAkien"]
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("3_bubow")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundProtoAkien"]
-shape = SubResource("CircleShape2D_05bvq")
 
 [node name="Core" parent="." instance=ExtResource("2_7f5ms")]
 
 [node name="ProjectorPlayer" parent="." instance=ExtResource("4_c0g6v")]
-position = Vector2(497, 261)
+position = Vector2(430, 241)
+collision_layer = 12
+collision_mask = 12
 
 [node name="MirrorPlayer" parent="." instance=ExtResource("5_jj7na")]
-position = Vector2(1088, 657)
+position = Vector2(628, 512)
+collision_layer = 9
+collision_mask = 9
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
+platform_on_leave = 2
 
 [node name="Projectors" type="Node2D" parent="."]
 
@@ -110,3 +115,10 @@ rotation = 2.2169
 [node name="Projector4" parent="Projectors" instance=ExtResource("6_ybpnd")]
 position = Vector2(962, 1009)
 rotation = 2.10692
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("ConcavePolygonShape2D_f6ro5")
