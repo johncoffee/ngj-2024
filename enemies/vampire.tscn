@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbcrqsogtxevg"]
+
+[ext_resource type="Script" path="res://enemies/vampire.gd" id="1_l58px"]
+[ext_resource type="Texture2D" uid="uid://7qvs0w3dc4kn" path="res://icon.svg" id="2_qmedx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqocb"]
+
+[node name="Vampire" type="CharacterBody2D"]
+script = ExtResource("1_l58px")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, -1.90735e-06)
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("2_qmedx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xqocb")
