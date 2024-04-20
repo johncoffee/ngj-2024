@@ -5,8 +5,7 @@ class_name Enemy
 
 @export var health:= 100
 @export var regen: = 10.0
-@export var player_position: Vector2
-@export var target_position: Vector2
+@export var target: Node
 @export var speed:= 30
 
 
@@ -18,7 +17,7 @@ func _ready() -> void:
 
 
 func _process(delta):
-	var direction = (target_position - position).normalized()
+	var direction = (target.position - position).normalized()
 	velocity = direction*speed
 	move_and_slide()
 	

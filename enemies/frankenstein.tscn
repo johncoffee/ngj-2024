@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://damegtb18g4qf"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_jrvye"]
+[ext_resource type="Texture2D" uid="uid://cicahyf8rhufl" path="res://textures/frankenstein/frankenstein_001.png" id="2_lu8ph"]
+[ext_resource type="Texture2D" uid="uid://vj0p1evxy2cu" path="res://textures/frankenstein/frankestein_002.png" id="3_bysdd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0lmok"]
+radius = 14.0
+height = 56.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gbp67"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lu8ph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bysdd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Frankenstein" type="CharacterBody2D"]
+script = ExtResource("1_jrvye")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_0lmok")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gbp67")
+autoplay = "default"
+frame_progress = 0.394858

@@ -15,7 +15,7 @@ radius = 432.042
 
 [node name="VampireSpawner" type="MultiplayerSpawner" parent="." node_paths=PackedStringArray("enemy_target")]
 _spawnable_scenes = PackedStringArray("res://enemies/vampire.tscn")
-spawn_path = NodePath("../EnemyRoot")
+spawn_path = NodePath("../VampireEnemyRoot")
 script = ExtResource("1_swf8v")
 interval = 3.0
 enemy_target = NodePath("../Core")
@@ -44,23 +44,25 @@ position = Vector2(575, 557)
 [node name="SpawnPoint8" type="Node2D" parent="VampireSpawner"]
 position = Vector2(664, 295)
 
-[node name="EnemySpawner2" type="MultiplayerSpawner" parent="." node_paths=PackedStringArray("enemy_target")]
-_spawnable_scenes = PackedStringArray("res://enemies/vampire.tscn")
-spawn_path = NodePath("../EnemyRoot")
+[node name="FrankensteinSpawner" type="MultiplayerSpawner" parent="." node_paths=PackedStringArray("enemy_target")]
+_spawnable_scenes = PackedStringArray("res://enemies/frankenstein.tscn")
+spawn_path = NodePath("../FrankensteinEnemyRoot")
 script = ExtResource("1_swf8v")
 interval = 3.0
-enemy_target = NodePath("../Core")
+enemy_target = NodePath("../MirrorPlayer")
 
-[node name="SpawnPoint1" type="Node2D" parent="EnemySpawner2"]
+[node name="SpawnPoint1" type="Node2D" parent="FrankensteinSpawner"]
 position = Vector2(974, 155)
 
-[node name="SpawnPoint2" type="Node2D" parent="EnemySpawner2"]
+[node name="SpawnPoint2" type="Node2D" parent="FrankensteinSpawner"]
 position = Vector2(1243, 280)
 
-[node name="SpawnPoint3" type="Node2D" parent="EnemySpawner2"]
+[node name="SpawnPoint3" type="Node2D" parent="FrankensteinSpawner"]
 position = Vector2(1333, 546)
 
-[node name="EnemyRoot" type="Node" parent="."]
+[node name="VampireEnemyRoot" type="Node" parent="."]
+
+[node name="FrankensteinEnemyRoot" type="Node" parent="."]
 
 [node name="BatRoot" type="Node" parent="."]
 
@@ -96,7 +98,7 @@ position = Vector2(1088, 657)
 [node name="Projectors" type="Node2D" parent="."]
 
 [node name="Projector1" parent="Projectors" instance=ExtResource("6_ybpnd")]
-position = Vector2(489, 550)
+position = Vector2(386, 550)
 rotation = -2.34103
 
 [node name="Projector2" parent="Projectors" instance=ExtResource("6_ybpnd")]
@@ -104,7 +106,7 @@ position = Vector2(967, 74)
 rotation = 0.216385
 
 [node name="Projector3" parent="Projectors" instance=ExtResource("6_ybpnd")]
-position = Vector2(1427, 547)
+position = Vector2(1498, 547)
 rotation = 2.2169
 
 [node name="Projector4" parent="Projectors" instance=ExtResource("6_ybpnd")]
