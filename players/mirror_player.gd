@@ -27,8 +27,8 @@ func _process(delta: float) -> void:
 	velocity = movement * speed
 	move_and_slide()
 	
-	var rotation = Input.get_axis("mirror.move.rotate.left", "mirror.move.rotate.right")
-	$MirrorRoot.rotate(rotation * rotation_speed * delta)
+	var rotation_dir = Input.get_axis("mirror.move.rotate.left", "mirror.move.rotate.right")
+	$MirrorRoot.rotate(rotation_dir * rotation_speed * delta)
 	
 	for light_source in light_sources:
 		var direction: Vector2 = (position - light_source.position).normalized()

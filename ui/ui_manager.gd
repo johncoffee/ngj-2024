@@ -10,22 +10,24 @@ func _ready():
 	score_text.text = str("0 points")
 		
 	var tutorialCanvasLayer = get_node("../TutorialCanvasLayer")
-	var tween = create_tween()
-	tutorialCanvasLayer.scale = Vector2(1.1, 1.1)
+	var tween = create_tween().set_parallel(true)
+	tutorialCanvasLayer.offset.x = 960
+	tutorialCanvasLayer.scale = Vector2(2, 2)
+	tween.tween_property(tutorialCanvasLayer, "offset:x", 0, 0.66)
 	tween.tween_property(tutorialCanvasLayer, "scale", Vector2(1,1), 0.66)
 
-func _process(delta):
-# maps to space/enter
+func _process(_delta):
+	# maps to space/enter
 	if Input.is_action_just_pressed("ui_accept"):
 		add_score(1)
 
-func hide_after(delay_time: float):	
+func hide_after(delay_time: float):
 	await get_tree().create_timer(delay_time).timeout
 	
 	var tween = create_tween() \
 		.set_parallel(true)
 	var tutorialCanvasLayer = get_node("../TutorialCanvasLayer")
-	tween.tween_property(tutorialCanvasLayer, "rotation_degrees", 10, 0.22)
+	tween.tween_property(tutorialCanvasLayer, "rotation", deg_to_rad(10), 0.22)
 	tween.tween_property(tutorialCanvasLayer, "scale", Vector2(2,-2), 0.22)
 	await get_tree().create_timer(0.221).timeout
 	get_node("..").remove_child(get_node("../TutorialCanvasLayer"))

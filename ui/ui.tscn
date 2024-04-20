@@ -1,9 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://i0le6kh68aio"]
 
-[ext_resource type="Script" path="res://ui/ui-manager.gd" id="1_f05r3"]
+[ext_resource type="Script" path="res://ui/ui_manager.gd" id="1_f05r3"]
 [ext_resource type="LabelSettings" uid="uid://cjbwagdplrbd2" path="res://ui/label_settings.tres" id="2_eanc5"]
 
-[node name="Test-ui" type="Node3D"]
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="GameUI" type="CanvasLayer" parent="."]
 
@@ -48,10 +50,9 @@ size_flags_horizontal = 3
 
 [node name="Control" type="Control" parent="TutorialCanvasLayer"]
 layout_mode = 3
-anchors_preset = 0
-offset_top = 30.0
-offset_right = 1920.0
-offset_bottom = 130.0
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
 
 [node name="BoxContainer" type="BoxContainer" parent="TutorialCanvasLayer/Control"]
 layout_mode = 0

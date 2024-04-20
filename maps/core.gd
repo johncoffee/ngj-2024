@@ -22,7 +22,7 @@ func apply_charge(value: float) -> void:
 	charge += value
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	bar.value = charge
 	if charge <= 0.0: push_error("WELL GG")
 	if charge >= max_charge: push_error("NICE JOB")
