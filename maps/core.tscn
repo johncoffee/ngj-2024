@@ -1,13 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7g2oxwiwgakd"]
+[gd_scene load_steps=12 format=3 uid="uid://c7g2oxwiwgakd"]
 
 [ext_resource type="Script" path="res://maps/core.gd" id="1_fp401"]
 [ext_resource type="Texture2D" uid="uid://dtgj3mhr84jna" path="res://textures/turret/turret_001.png" id="1_m5n1r"]
+[ext_resource type="Texture2D" uid="uid://c2jxu8xsybjqr" path="res://textures/turret/mask.png" id="2_64u35"]
+[ext_resource type="Shader" path="res://maps/core.gdshader" id="2_dg5rm"]
 [ext_resource type="Texture2D" uid="uid://cfkphrbpw5t26" path="res://textures/turret/turret_002.png" id="2_oof8m"]
+[ext_resource type="Texture2D" uid="uid://dby4t2j0o22jp" path="res://textures/turret/turret_003.png" id="4_pw7y2"]
 [ext_resource type="Theme" uid="uid://bt3vq2xxetwgb" path="res://theme/theme.tres" id="4_yvo56"]
 [ext_resource type="AudioStream" uid="uid://v75k20qenhpc" path="res://sounds/hits.wav" id="5_7afbi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iqmug"]
 radius = 31.0161
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qm8fn"]
+shader = ExtResource("2_dg5rm")
+shader_parameter/fill_amount = 0.5
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ujxgj"]
 animations = [{
@@ -17,6 +24,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_oof8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pw7y2")
 }],
 "loop": true,
 "name": &"default",
@@ -34,12 +44,20 @@ position = Vector2(2.08165e-12, -2)
 shape = SubResource("CircleShape2D_iqmug")
 debug_color = Color(0.894118, 0.298039, 0.309804, 0.419608)
 
+[node name="Mask" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_qm8fn")
+position = Vector2(0, -86)
+scale = Vector2(3, 3)
+texture = ExtResource("2_64u35")
+region_enabled = true
+region_rect = Rect2(19, 5, 26, 26)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -44)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ujxgj")
 autoplay = "default"
-frame_progress = 0.871884
+frame_progress = 0.879726
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -82.0
