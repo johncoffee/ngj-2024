@@ -7,3 +7,4 @@ func _process(delta):
 	elif velocity.x < 0:
 		$AnimatedSprite2D.flip_h = false
 	# Keep original flip at 0.
+

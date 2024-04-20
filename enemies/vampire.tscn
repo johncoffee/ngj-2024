@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbcrqsogtxevg"]
+[gd_scene load_steps=7 format=3 uid="uid://cbcrqsogtxevg"]
 
 [ext_resource type="Script" path="res://enemies/vampire.gd" id="1_l58px"]
 [ext_resource type="Texture2D" uid="uid://dcoqlfuvd2rxu" path="res://textures/vampire/vampire_001.png" id="2_0du6e"]
 [ext_resource type="Texture2D" uid="uid://bfxmpf63jcsd2" path="res://textures/vampire/vampire_002.png" id="3_llt6j"]
+[ext_resource type="AudioStream" uid="uid://cg0ae2f1woapd" path="res://sounds/vampire_walking.wav" id="4_eymrl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7doxv"]
 animations = [{
@@ -31,3 +32,7 @@ frame_progress = 0.0751215
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xqocb")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_eymrl")
+autoplay = true
