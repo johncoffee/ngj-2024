@@ -15,6 +15,10 @@ run/main_scene="res://maps/sandbox.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+EnemyEvents="*res://enemies/EnemyEvents.gd"
+
 [display]
 
 window/size/viewport_width=1920

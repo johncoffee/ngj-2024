@@ -1,5 +1,7 @@
 extends Node
 
+class_name UIManager
+
 var score = 0
 
 func _ready():

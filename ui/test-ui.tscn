@@ -54,6 +54,7 @@ offset_right = 1126.0
 offset_bottom = 136.0
 
 [node name="BoxContainer" type="BoxContainer" parent="TutorialCanvasLayer/Control"]
+layout_mode = 0
 offset_left = 26.0
 offset_top = 26.0
 offset_right = 1118.0
@@ -81,5 +82,5 @@ layout_mode = 2
 text = "Arrow keys to move"
 label_settings = ExtResource("2_eanc5")
 
-[node name="manager" type="Node" parent="."]
+[node name="UIManager" type="Node" parent="."]
 script = ExtResource("1_f05r3")
