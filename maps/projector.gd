@@ -58,6 +58,7 @@ func repair(delta: float):
 	if hp >= max_hp:
 		hp = max_hp
 		broken = false
+		light_on = true
 
 
 func toggle_light():
