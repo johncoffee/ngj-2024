@@ -15,6 +15,10 @@ run/main_scene="res://maps/sandbox.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ControllerIcons="*res://addons/controller_icons/ControllerIcons.gd"
+
 [display]
 
 window/size/viewport_width=1920
@@ -24,6 +28,10 @@ window/size/window_height_override=1080
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 window/stretch/scale_mode="integer"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/controller_icons/plugin.cfg")
 
 [filesystem]
 
