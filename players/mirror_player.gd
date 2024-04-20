@@ -1,15 +1,24 @@
 extends CharacterBody2D
 
 
+@export var health: = 100
 @export var damage: float
 @export var speed: float
 @export var rotation_speed: float
 
 
 var light_sources: Dictionary
+var current_health: float
+
+
+func _ready() -> void:
+	current_health = health
+	$Health.max_value = health
 
 
 func _process(delta: float) -> void:
+	$Health.value = current_health
+	
 	var movement = Vector2(
 		Input.get_axis("mirror.move.left", "mirror.move.right"),
 		Input.get_axis("mirror.move.up", "mirror.move.down")
@@ -53,3 +62,10 @@ func unregister_light(light_source) -> void:
 	var beam = light_sources[light_source]
 	beam.queue_free()
 	light_sources.erase(light_source)
+
+
+func apply_damage(value: float) -> void:
+	current_health -= value
+	if current_health <= 0.0: 
+		push_error("YOU'VE LOST, DUMMY")
+		breakpoint

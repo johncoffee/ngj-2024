@@ -3,6 +3,7 @@ extends CharacterBody2D
 class_name Enemy
 
 
+@export var damage: float
 @export var health:= 100
 @export var regen: = 10.0
 @export var target: Node
@@ -23,6 +24,9 @@ func _process(delta):
 	
 	if current_health <= 0.0: queue_free()
 	current_health = min(current_health + regen * delta, health)
+	
+	if (target.position - position).length_squared() < 30:
+		target.apply_damage(damage)
 
 
 func apply_charge(value: float) -> void:
