@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 		
 		var collider = raycast.get_collider()
 		if collider:
-			collider.apply_damage(damage * delta)
+			collider.apply_charge(damage * delta)
 			length = (collider.position - position).length()
 		
 		
