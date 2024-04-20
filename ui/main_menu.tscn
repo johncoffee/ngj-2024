@@ -343,6 +343,7 @@ layout_mode = 2
 texture = SubResource("Texture2D_dar5l")
 
 [node name="Label" type="Label" parent="ProjectorPlayer/Control/GridContainer2/Button2"]
+layout_mode = 0
 offset_left = 85.0
 offset_top = 38.0
 offset_right = 281.0

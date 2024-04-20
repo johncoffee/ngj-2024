@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://yrrfmbliq41n"]
+[gd_scene load_steps=4 format=3 uid="uid://yrrfmbliq41n"]
 
 [ext_resource type="Script" path="res://players/mirror_player.gd" id="1_e4ygt"]
-[ext_resource type="Texture2D" uid="uid://bjcge5o1kyest" path="res://textures/mirror_player/red_head.png" id="2_otxxh"]
 [ext_resource type="Texture2D" uid="uid://7qvs0w3dc4kn" path="res://icon.svg" id="2_p350x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uoh81"]
@@ -18,7 +17,8 @@ shape = SubResource("CircleShape2D_uoh81")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 2
-texture = ExtResource("2_otxxh")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_p350x")
 
 [node name="MirrorRoot" type="Node2D" parent="."]
 
