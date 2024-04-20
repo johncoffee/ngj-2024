@@ -4,16 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://l5obuv21ubwr" path="res://textures/vampire.png" id="2_6owa4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqocb"]
-size = Vector2(31.5, 31.5)
+size = Vector2(64, 64)
 
 [node name="Vampire" type="CharacterBody2D"]
 script = ExtResource("1_l58px")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0.249997, 0)
-scale = Vector2(0.503906, 0.5)
 texture = ExtResource("2_6owa4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.25, 1.25)
 shape = SubResource("RectangleShape2D_xqocb")

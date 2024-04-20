@@ -15,6 +15,7 @@ shape = SubResource("RectangleShape2D_titmn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.935553, 0.958718, 7.70092e-07, 1)
+scale = Vector2(2, 2)
 texture = ExtResource("2_eagai")
 
 [node name="LightAnchor" type="Node2D" parent="."]
@@ -22,15 +23,14 @@ rotation = 3.14159
 
 [node name="LightBeam" type="Sprite2D" parent="LightAnchor"]
 modulate = Color(1, 1, 1, 0.176471)
-position = Vector2(-3, -157)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-6, -314)
 texture = ExtResource("3_tk0yv")
 
 [node name="LightArea" type="Area2D" parent="."]
 monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LightArea"]
-polygon = PackedVector2Array(-32, 31, -46, 264, 1, 292, 52, 262, 32, 32)
+polygon = PackedVector2Array(-63, 57, -85, 545, 0, 585, 102, 545, 62, 57)
 
 [connection signal="body_entered" from="LightArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="LightArea" to="." method="_on_area_2d_body_exited"]

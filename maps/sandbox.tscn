@@ -11,12 +11,12 @@
 radius = 22.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_05bvq"]
-radius = 201.04
+radius = 432.042
 
 [node name="Sandbox" type="Node2D"]
 
 [node name="EnemySpawner" type="Node2D" parent="." node_paths=PackedStringArray("enemy_parent", "enemy_target")]
-position = Vector2(385, 156)
+position = Vector2(815, 354)
 script = ExtResource("1_swf8v")
 interval = 3.0
 enemy = ExtResource("2_4dy0r")
@@ -24,7 +24,7 @@ enemy_parent = NodePath("..")
 enemy_target = NodePath("../Core")
 
 [node name="Core" type="Area2D" parent="."]
-position = Vector2(509, 274)
+position = Vector2(960, 540)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Core"]
 position = Vector2(0, -1)
@@ -32,39 +32,39 @@ shape = SubResource("CircleShape2D_6hvq5")
 debug_color = Color(0.894118, 0.298039, 0.309804, 0.419608)
 
 [node name="GroundProtoAkien" type="StaticBody2D" parent="."]
-position = Vector2(506, 275)
+position = Vector2(960, 540)
 collision_layer = 4
 collision_mask = 4
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="GroundProtoAkien"]
-scale = Vector2(0.8, 0.8)
+scale = Vector2(1.7, 1.7)
 texture = ExtResource("3_i3f81")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundProtoAkien"]
 shape = SubResource("CircleShape2D_05bvq")
 
 [node name="ProjectorPlayer" parent="." instance=ExtResource("4_c0g6v")]
-position = Vector2(139, 199)
+position = Vector2(497, 261)
 collision_layer = 4
 collision_mask = 4
 
 [node name="MirrorPlayer" parent="." instance=ExtResource("5_jj7na")]
-position = Vector2(600, 376)
+position = Vector2(1088, 657)
 
 [node name="Projectors" type="Node2D" parent="."]
 
 [node name="Projector1" parent="Projectors" instance=ExtResource("6_ybpnd")]
-position = Vector2(251, 278)
+position = Vector2(489, 550)
 rotation = -1.57037
 
 [node name="Projector2" parent="Projectors" instance=ExtResource("6_ybpnd")]
-position = Vector2(495, 37)
+position = Vector2(967, 74)
 
 [node name="Projector3" parent="Projectors" instance=ExtResource("6_ybpnd")]
-position = Vector2(753, 277)
+position = Vector2(1427, 547)
 rotation = 1.56141
 
 [node name="Projector4" parent="Projectors" instance=ExtResource("6_ybpnd")]
-position = Vector2(502, 512)
+position = Vector2(962, 1009)
 rotation = 3.13601

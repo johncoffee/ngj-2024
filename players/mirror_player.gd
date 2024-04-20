@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		var length: float = (position - light_source.position).length()
 		var dot: = maxf(direction.dot(-$MirrorRoot.transform.y), 0)
 		var beam: Line2D = light_sources[light_source]
-		length = 30000 / length * dot
+		length = 60000 / length * dot
 		beam.points[1] = -direction.reflect($MirrorRoot.transform.y) * length
 		var raycast: RayCast2D = beam.get_node("RayCast")
 		raycast.target_position = beam.points[1]

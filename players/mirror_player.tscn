@@ -9,7 +9,7 @@
 position = Vector2(732, 469)
 script = ExtResource("1_e4ygt")
 damage = 100.0
-speed = 100.0
+speed = 250.0
 rotation_speed = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -17,13 +17,13 @@ shape = SubResource("CircleShape2D_uoh81")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 2
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_p350x")
 
 [node name="MirrorRoot" type="Node2D" parent="."]
 
 [node name="Mirror" type="Sprite2D" parent="MirrorRoot"]
 modulate = Color(4, 4, 0, 1)
-position = Vector2(0, 5)
-scale = Vector2(0.265625, 0.078125)
+position = Vector2(0, 16)
+scale = Vector2(0.6, 0.176)
 texture = ExtResource("2_p350x")

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed := 300
+@export var speed := 300
 
 var close_projector: Projector = null
 
