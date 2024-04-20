@@ -96,20 +96,20 @@ platform_on_leave = 2
 [node name="Projectors" type="Node2D" parent="."]
 
 [node name="Projector1" parent="Projectors" instance=ExtResource("6_ybpnd")]
-position = Vector2(386, 550)
+position = Vector2(413, 557)
 rotation = -2.34103
 
 [node name="Projector2" parent="Projectors" instance=ExtResource("6_ybpnd")]
-position = Vector2(967, 74)
+position = Vector2(964, 107)
 rotation = 0.216385
 
 [node name="Projector3" parent="Projectors" instance=ExtResource("6_ybpnd")]
-position = Vector2(1498, 547)
+position = Vector2(1468, 565)
 rotation = 2.2169
 
 [node name="Projector4" parent="Projectors" instance=ExtResource("6_ybpnd")]
-position = Vector2(962, 1009)
-rotation = 2.10692
+position = Vector2(959, 976)
+rotation = 3.02847
 
 [node name="Area2D" type="StaticBody2D" parent="."]
 collision_layer = 8
