@@ -4,13 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://7qvs0w3dc4kn" path="res://icon.svg" id="2_qmedx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqocb"]
+size = Vector2(64, 64)
 
 [node name="Vampire" type="CharacterBody2D"]
 script = ExtResource("1_l58px")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.90735e-06, -1.90735e-06)
-scale = Vector2(0.15625, 0.15625)
+position = Vector2(0.249997, 0)
+scale = Vector2(0.503906, 0.5)
 texture = ExtResource("2_qmedx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
