@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://maps/projector.gd" id="1_14a2k"]
 [ext_resource type="Texture2D" uid="uid://70mha7amjdxi" path="res://textures/projector.png" id="2_eagai"]
 [ext_resource type="Texture2D" uid="uid://bf0hnncoui0d3" path="res://textures/projector_closed.png" id="3_1fb0u"]
-[ext_resource type="Texture2D" uid="uid://bmwjkorvpa4ve" path="res://akien/project_beam_proto_akien.png" id="3_tk0yv"]
+[ext_resource type="Texture2D" uid="uid://bmwjkorvpa4ve" path="res://textures/projector_beam.png" id="4_kmjxh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_titmn"]
 size = Vector2(64, 64)
@@ -29,7 +29,7 @@ texture = ExtResource("3_1fb0u")
 modulate = Color(1, 1, 1, 0.176471)
 position = Vector2(6.0008, 314)
 rotation = 3.14159
-texture = ExtResource("3_tk0yv")
+texture = ExtResource("4_kmjxh")
 
 [node name="LightArea" type="Area2D" parent="."]
 monitorable = false
