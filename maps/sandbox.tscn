@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://qmlivrqeg4pq"]
+[gd_scene load_steps=11 format=3 uid="uid://qmlivrqeg4pq"]
 
 [ext_resource type="Script" path="res://enemies/enemy_spawner.gd" id="1_swf8v"]
 [ext_resource type="PackedScene" uid="uid://c7g2oxwiwgakd" path="res://maps/core.tscn" id="2_7f5ms"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bf1y1a0oplbs1" path="res://players/projector_player.tscn" id="4_c0g6v"]
 [ext_resource type="PackedScene" uid="uid://yrrfmbliq41n" path="res://players/mirror_player.tscn" id="5_jj7na"]
 [ext_resource type="PackedScene" uid="uid://dq64kjqwly66a" path="res://maps/projector.tscn" id="6_ybpnd"]
-[ext_resource type="PackedScene" uid="uid://i0le6kh68aio" path="res://ui/ui.tscn" id="8_ap3mm"]
+[ext_resource type="PackedScene" uid="uid://i0le6kh68aio" path="res://ui/test-ui.tscn" id="8_ap3mm"]
+[ext_resource type="Script" path="res://maps/level-manager.gd" id="9_8xe0c"]
 [ext_resource type="PackedScene" uid="uid://dju5wkp48o4u3" path="res://enemies/bat_swarm.tscn" id="9_nar3i"]
 
 [sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_f6ro5"]
@@ -121,3 +122,6 @@ collision_mask = 8
 shape = SubResource("ConcavePolygonShape2D_f6ro5")
 
 [node name="UI" parent="." instance=ExtResource("8_ap3mm")]
+
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("9_8xe0c")
