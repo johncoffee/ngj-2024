@@ -50,13 +50,14 @@ size_flags_horizontal = 3
 layout_mode = 3
 anchors_preset = 0
 offset_top = 30.0
-offset_right = 1126.0
-offset_bottom = 136.0
+offset_right = 1920.0
+offset_bottom = 130.0
 
 [node name="BoxContainer" type="BoxContainer" parent="TutorialCanvasLayer/Control"]
+layout_mode = 0
 offset_left = 26.0
 offset_top = 26.0
-offset_right = 1118.0
+offset_right = 1894.0
 offset_bottom = 71.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="TutorialCanvasLayer/Control/BoxContainer"]
