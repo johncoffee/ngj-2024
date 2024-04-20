@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://maps/projector.gd" id="1_14a2k"]
 [ext_resource type="Texture2D" uid="uid://70mha7amjdxi" path="res://textures/projector.png" id="2_eagai"]
-[ext_resource type="Texture2D" uid="uid://bf0hnncoui0d3" path="res://textures/projector_closed.png" id="3_1fb0u"]
+[ext_resource type="Texture2D" uid="uid://bop8vtseh4qn2" path="res://textures/projector_closed.png" id="3_1fb0u"]
 [ext_resource type="Texture2D" uid="uid://bmwjkorvpa4ve" path="res://textures/projector_beam.png" id="4_kmjxh"]
 [ext_resource type="AudioStream" uid="uid://3qiirmmhsdje" path="res://sounds/projector_breaking.wav" id="5_le54k"]
 
@@ -50,6 +50,7 @@ position = Vector2(0, 60)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_le54k")
+volume_db = -3.0
 
 [connection signal="body_entered" from="LightArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="LightArea" to="." method="_on_area_2d_body_exited"]

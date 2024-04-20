@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bf1y1a0oplbs1"]
 
 [ext_resource type="Script" path="res://players/projector_player.gd" id="1_4xl8a"]
-[ext_resource type="Texture2D" uid="uid://7qvs0w3dc4kn" path="res://icon.svg" id="1_uknuu"]
+[ext_resource type="Texture2D" uid="uid://5syj4lsyhv0v" path="res://textures/projector_player/blue_head.png" id="2_ds7or"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmjrj"]
 size = Vector2(64, 64)
@@ -18,8 +18,7 @@ script = ExtResource("1_4xl8a")
 shape = SubResource("RectangleShape2D_mmjrj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_uknuu")
+texture = ExtResource("2_ds7or")
 
 [node name="ProjectorDetector" type="Area2D" parent="."]
 

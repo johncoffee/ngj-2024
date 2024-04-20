@@ -8,4 +8,11 @@ spacing_top = 6
 
 [resource]
 default_font = SubResource("FontVariation_ow8m6")
-default_font_size = 19
+default_font_size = 38
+LargeLabel/base_type = &"Label"
+LargeLabel/colors/font_color = Color(2.61252e-06, 0.758283, 0.736944, 1)
+LargeLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+LargeLabel/constants/outline_size = 12
+LargeLabel/font_sizes/font_size = 57
+TitleLabel/base_type = &"Label"
+TitleLabel/font_sizes/font_size = 133

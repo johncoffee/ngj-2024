@@ -1,0 +1,207 @@
+[gd_scene load_steps=11 format=3 uid="uid://b3klo0a4hc6ed"]
+
+[ext_resource type="Theme" uid="uid://bt3vq2xxetwgb" path="res://theme/theme.tres" id="1_47nge"]
+[ext_resource type="PackedScene" uid="uid://yrrfmbliq41n" path="res://players/mirror_player.tscn" id="2_e1yyq"]
+[ext_resource type="PackedScene" uid="uid://bf1y1a0oplbs1" path="res://players/projector_player.tscn" id="3_6b666"]
+[ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="3_tvjic"]
+
+[sub_resource type="Texture2D" id="Texture2D_x48vx"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_tvjic")
+path = "projector.move.down"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_5an7m"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_tvjic")
+path = "projector.move.up"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_nj7q0"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_tvjic")
+path = "projector.pan.left"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_06861"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_tvjic")
+path = "projector.move.left"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_xdell"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_tvjic")
+path = "projector.pan.right"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_acsir"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_tvjic")
+path = "projector.move.right"
+show_mode = 0
+force_type = 0
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_47nge")
+
+[node name="MirrorPlayer" parent="." instance=ExtResource("2_e1yyq")]
+
+[node name="Control" type="Control" parent="MirrorPlayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_47nge")
+
+[node name="Label" type="Label" parent="MirrorPlayer/Control"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = -78.0
+offset_right = 67.0
+offset_bottom = -24.0
+text = "Player 1"
+horizontal_alignment = 1
+
+[node name="Button1" type="TextureRect" parent="MirrorPlayer/Control"]
+layout_mode = 0
+offset_left = -51.0
+offset_top = -164.0
+offset_right = 49.0
+offset_bottom = -64.0
+texture = SubResource("Texture2D_x48vx")
+
+[node name="Button2" type="TextureRect" parent="MirrorPlayer/Control"]
+layout_mode = 0
+offset_left = -70.0
+offset_top = -239.0
+offset_right = 30.0
+offset_bottom = -139.0
+texture = SubResource("Texture2D_5an7m")
+
+[node name="Button3" type="TextureRect" parent="MirrorPlayer/Control"]
+layout_mode = 0
+offset_left = -149.0
+offset_top = -239.0
+offset_right = -49.0
+offset_bottom = -139.0
+texture = SubResource("Texture2D_nj7q0")
+
+[node name="Button4" type="TextureRect" parent="MirrorPlayer/Control"]
+layout_mode = 0
+offset_left = -131.0
+offset_top = -164.0
+offset_right = -31.0
+offset_bottom = -64.0
+texture = SubResource("Texture2D_06861")
+
+[node name="Button5" type="TextureRect" parent="MirrorPlayer/Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -239.0
+offset_right = 110.0
+offset_bottom = -139.0
+texture = SubResource("Texture2D_xdell")
+
+[node name="Button6" type="TextureRect" parent="MirrorPlayer/Control"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = -164.0
+offset_right = 130.0
+offset_bottom = -64.0
+texture = SubResource("Texture2D_acsir")
+
+[node name="ProjectorPlayer" parent="." instance=ExtResource("3_6b666")]
+position = Vector2(1124, 473)
+
+[node name="Control" type="Control" parent="ProjectorPlayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_47nge")
+
+[node name="Label" type="Label" parent="ProjectorPlayer/Control"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = -78.0
+offset_right = 67.0
+offset_bottom = -24.0
+text = "Player 1"
+horizontal_alignment = 1
+
+[node name="Button1" type="TextureRect" parent="ProjectorPlayer/Control"]
+layout_mode = 0
+offset_left = -51.0
+offset_top = -164.0
+offset_right = 49.0
+offset_bottom = -64.0
+texture = SubResource("Texture2D_x48vx")
+
+[node name="Button2" type="TextureRect" parent="ProjectorPlayer/Control"]
+layout_mode = 0
+offset_left = -70.0
+offset_top = -239.0
+offset_right = 30.0
+offset_bottom = -139.0
+texture = SubResource("Texture2D_5an7m")
+
+[node name="Button3" type="TextureRect" parent="ProjectorPlayer/Control"]
+layout_mode = 0
+offset_left = -149.0
+offset_top = -239.0
+offset_right = -49.0
+offset_bottom = -139.0
+texture = SubResource("Texture2D_nj7q0")
+
+[node name="Button4" type="TextureRect" parent="ProjectorPlayer/Control"]
+layout_mode = 0
+offset_left = -131.0
+offset_top = -164.0
+offset_right = -31.0
+offset_bottom = -64.0
+texture = SubResource("Texture2D_06861")
+
+[node name="Button5" type="TextureRect" parent="ProjectorPlayer/Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -239.0
+offset_right = 110.0
+offset_bottom = -139.0
+texture = SubResource("Texture2D_xdell")
+
+[node name="Button6" type="TextureRect" parent="ProjectorPlayer/Control"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = -164.0
+offset_right = 130.0
+offset_bottom = -64.0
+texture = SubResource("Texture2D_acsir")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 292.0
+grow_horizontal = 2
+theme_type_variation = &"TitleLabel"
+text = "BURN VAMPIRES, BURN!"
+horizontal_alignment = 1
+vertical_alignment = 1
