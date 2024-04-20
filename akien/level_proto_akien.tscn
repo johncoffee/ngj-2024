@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1hvd3t2gy6ex"]
+
+[ext_resource type="Texture2D" uid="uid://cgvpvxtvhxv5s" path="res://akien/ground_proto_akien.png" id="1_m1ab6"]
+[ext_resource type="PackedScene" uid="uid://bf1y1a0oplbs1" path="res://akien/projector_player.tscn" id="2_dqmrj"]
+[ext_resource type="PackedScene" uid="uid://dq64kjqwly66a" path="res://akien/projector_proto_akien.tscn" id="3_h5wyh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a81xu"]
+radius = 250.0
+
+[node name="LevelProtoAkien" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="GroundProtoAkien" type="StaticBody2D" parent="."]
+position = Vector2(650, 402)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="GroundProtoAkien"]
+texture = ExtResource("1_m1ab6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundProtoAkien"]
+shape = SubResource("CircleShape2D_a81xu")
+
+[node name="ProjectorPlayer" parent="." instance=ExtResource("2_dqmrj")]
+position = Vector2(654, 57)
+collision_layer = 4
+collision_mask = 4
+
+[node name="Projector" parent="." instance=ExtResource("3_h5wyh")]
+position = Vector2(361, 336)
+rotation = -0.741879
+
+[node name="Projector2" parent="." instance=ExtResource("3_h5wyh")]
+position = Vector2(644, 693)
+rotation = -3.09794
+
+[node name="Projector3" parent="." instance=ExtResource("3_h5wyh")]
+position = Vector2(923, 293)
+rotation = 1.03087
+
+[node name="Projector4" parent="." instance=ExtResource("3_h5wyh")]
+position = Vector2(540, 133)
+rotation = -0.34711
