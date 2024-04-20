@@ -25,5 +25,5 @@ func _process(delta):
 	current_health = min(current_health + regen * delta, health)
 
 
-func apply_damage(value: float) -> void:
+func apply_charge(value: float) -> void:
 	current_health -= value
