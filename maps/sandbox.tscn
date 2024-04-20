@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bf1y1a0oplbs1" path="res://players/projector_player.tscn" id="4_c0g6v"]
 [ext_resource type="PackedScene" uid="uid://yrrfmbliq41n" path="res://players/mirror_player.tscn" id="5_jj7na"]
 [ext_resource type="PackedScene" uid="uid://dq64kjqwly66a" path="res://maps/projector.tscn" id="6_ybpnd"]
-[ext_resource type="PackedScene" path="res://enemies/bat_swarm.tscn" id="9_nar3i"]
+[ext_resource type="PackedScene" uid="uid://dwg8etvs2mqwq" path="res://enemies/bat_swarm.tscn" id="9_nar3i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_05bvq"]
 radius = 432.042

@@ -8,8 +8,10 @@ extends Area2D
 var light_on := false:
 	set(value):
 		light_on = value
-		$LightAnchor.visible = value
+		$LightBeam.visible = value
 		$LightArea.monitoring = value
+		$SpriteOpen.visible = value
+		$SpriteClosed.visible = not value
 
 var hp: float = max_hp:
 	set(value):
@@ -20,20 +22,24 @@ var broken := false:
 	set(value):
 		broken = value
 		if broken:
-			$Sprite2D.modulate = Color.DIM_GRAY
+			light_on = false
+			$ProgressBar.modulate = Color.WHITE
+			$SpriteClosed.modulate = Color.DIM_GRAY
 		else:
-			$Sprite2D.modulate = Color.WHITE
+			$ProgressBar.modulate = Color.GREEN_YELLOW
+			$SpriteClosed.modulate = Color.WHITE
 
 
 func _ready():
-	# Randomly break some on start.
+	# Randomly break and damage some on start.
 	if randf() < 0.3:
 		broken = true
+		light_on = false
 		hp = randf_range(0, max_hp / 2.0)
-		# Randomly turn some on.
-		light_on = randf() < 0.5
 	else:
 		broken = false
+		# Randomly turn some on.
+		light_on = randf() < 0.5
 		hp = randf_range(max_hp / 2.0, max_hp)
 
 
@@ -57,7 +63,7 @@ func toggle_light():
 
 
 func pan(offset: float):
-	$LightAnchor.rotation_degrees += offset * pan_speed
+	rotation_degrees += offset * pan_speed
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

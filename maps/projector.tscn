@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dq64kjqwly66a"]
+[gd_scene load_steps=6 format=3 uid="uid://dq64kjqwly66a"]
 
 [ext_resource type="Script" path="res://maps/projector.gd" id="1_14a2k"]
 [ext_resource type="Texture2D" uid="uid://70mha7amjdxi" path="res://textures/projector.png" id="2_eagai"]
+[ext_resource type="Texture2D" uid="uid://bf0hnncoui0d3" path="res://textures/projector_closed.png" id="3_1fb0u"]
 [ext_resource type="Texture2D" uid="uid://bmwjkorvpa4ve" path="res://akien/project_beam_proto_akien.png" id="3_tk0yv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_titmn"]
@@ -13,17 +14,21 @@ script = ExtResource("1_14a2k")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_titmn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="SpriteOpen" type="Sprite2D" parent="."]
 modulate = Color(0.935553, 0.958718, 7.70092e-07, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("2_eagai")
 
-[node name="LightAnchor" type="Node2D" parent="."]
-rotation = 3.14159
+[node name="SpriteClosed" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.935553, 0.958718, 7.70092e-07, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("3_1fb0u")
 
-[node name="LightBeam" type="Sprite2D" parent="LightAnchor"]
+[node name="LightBeam" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.176471)
-position = Vector2(-6, -314)
+position = Vector2(6.0008, 314)
+rotation = 3.14159
 texture = ExtResource("3_tk0yv")
 
 [node name="LightArea" type="Area2D" parent="."]
