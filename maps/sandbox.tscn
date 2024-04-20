@@ -73,6 +73,7 @@ position = Vector2(-180, 1127)
 position = Vector2(1249, -507)
 
 [node name="Ground" type="Sprite2D" parent="."]
+modulate = Color(0.605274, 0.605274, 0.605274, 1)
 position = Vector2(960, 540)
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("3_bubow")

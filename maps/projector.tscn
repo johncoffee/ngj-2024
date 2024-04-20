@@ -23,7 +23,7 @@ visible = false
 scale = Vector2(2, 2)
 texture = ExtResource("3_1fb0u")
 
-[node name="LightBeam" type="Sprite2D" parent="."]
+[node name="LightBeam" type="PointLight2D" parent="."]
 modulate = Color(1, 1, 1, 0.176471)
 position = Vector2(6.0008, 314)
 rotation = 3.14159
