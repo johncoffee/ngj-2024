@@ -3,24 +3,23 @@
 [ext_resource type="Script" path="res://enemies/enemy_spawner.gd" id="1_swf8v"]
 [ext_resource type="PackedScene" uid="uid://cbcrqsogtxevg" path="res://enemies/vampire.tscn" id="2_4dy0r"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1pa2m"]
-radius = 267.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_6hvq5"]
+radius = 22.0
 
 [node name="Sandbox" type="Node2D"]
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(584, 307)
-shape = SubResource("CircleShape2D_1pa2m")
-
-[node name="EnemySpawner" type="Node2D" parent="Area2D" node_paths=PackedStringArray("enemy_parent", "enemy_target")]
-position = Vector2(465, 179)
+[node name="EnemySpawner" type="Node2D" parent="." node_paths=PackedStringArray("enemy_parent", "enemy_target")]
+position = Vector2(289, 225)
 script = ExtResource("1_swf8v")
 interval = 1.0
 enemy = ExtResource("2_4dy0r")
-enemy_parent = NodePath("../..")
-enemy_target = NodePath("../Core")
+enemy_parent = NodePath("..")
+enemy_target = NodePath("../Core/CollisionShape2D")
 
-[node name="Core" type="Sprite2D" parent="Area2D"]
-position = Vector2(500, 250)
+[node name="Core" type="Area2D" parent="."]
+position = Vector2(325, 164)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Core"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_6hvq5")
+debug_color = Color(0.894118, 0.298039, 0.309804, 0.419608)
