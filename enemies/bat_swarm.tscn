@@ -17,8 +17,6 @@ orbit_velocity_min = -0.228
 orbit_velocity_max = 0.253
 gravity = Vector3(0, 0, 0)
 scale_max = 1.5
-hue_variation_min = 0.1
-hue_variation_max = 0.1
 anim_speed_min = 10.0
 anim_speed_max = 30.0
 anim_offset_min = 0.5
@@ -31,14 +29,14 @@ turbulence_initial_displacement_min = -7.3
 turbulence_initial_displacement_max = 7.3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qiw3g"]
-radius = 99.0808
+radius = 150.0
 
 [node name="BatSwarm" type="Node2D"]
 script = ExtResource("1_a0o32")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_tv1c1")
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 amount = 40
 process_material = SubResource("ParticleProcessMaterial_hd3yh")
 texture = ExtResource("2_puirq")
@@ -48,7 +46,8 @@ visibility_rect = Rect2(-500, -500, 2000, 2000)
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-1.77056, -0.637373)
 rotation = -2.45051
-collision_mask = 3
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_qiw3g")

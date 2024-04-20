@@ -72,13 +72,8 @@ position = Vector2(-180, 1127)
 [node name="BatSwarm2" parent="BatRoot" instance=ExtResource("9_nar3i")]
 position = Vector2(1249, -507)
 
-[node name="Ground" type="StaticBody2D" parent="."]
+[node name="Ground" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-collision_layer = 2
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Ground"]
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("3_bubow")
 
@@ -86,8 +81,8 @@ texture = ExtResource("3_bubow")
 
 [node name="ProjectorPlayer" parent="." instance=ExtResource("4_c0g6v")]
 position = Vector2(430, 241)
-collision_layer = 12
-collision_mask = 12
+collision_layer = 10
+collision_mask = 10
 
 [node name="MirrorPlayer" parent="." instance=ExtResource("5_jj7na")]
 position = Vector2(628, 512)
