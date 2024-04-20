@@ -47,8 +47,7 @@ func _process(delta: float) -> void:
 		
 		beam.points[1] = -direction.reflect($MirrorRoot.transform.y) * length
 		
-		particles.emitting = dot > 0.0
-		particles.amount = 32 if collider else 8
+		particles.emitting = dot > 0.0 and collider
 		particles.position = beam.points[1]
 
 

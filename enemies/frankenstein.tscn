@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://damegtb18g4qf"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_jrvye"]
-[ext_resource type="Texture2D" uid="uid://pjhwypkft1qe" path="res://textures/frankenstein/frankenstein_001.png" id="2_lu8ph"]
+[ext_resource type="Texture2D" uid="uid://cicahyf8rhufl" path="res://textures/frankenstein/frankenstein_001.png" id="2_lu8ph"]
 [ext_resource type="Texture2D" uid="uid://b7wsv34hxab73" path="res://textures/frankenstein/frankenstein_002.png" id="3_i00vh"]
 [ext_resource type="Script" path="res://enemies/attack_area.gd" id="4_h7tar"]
 

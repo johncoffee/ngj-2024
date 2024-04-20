@@ -35,10 +35,15 @@ func _process(delta):
 	for area in $Area2D.get_overlapping_areas():
 		if area is Projector:
 			area.damage(damage * delta)
+			if area.hp <= 0.0 and not spooked: spook()
 	for body in $Area2D.get_overlapping_bodies():
 		if body is ProjectorPlayer and not spooked:
-			spooked = true
-			var target_x := randf_range(2000, 3000) if randf() > 0.5 else randf_range(-1000, 0)
-			var target_y := randf_range(1000, 2000) if randf() > 0.5 else randf_range(-1000, 0)
-			spooked_target_position = Vector2(target_x, target_y)
-			target_projector = null
+			spook()
+
+
+func spook() -> void:
+	spooked = true
+	var target_x := randf_range(2000, 3000) if randf() > 0.5 else randf_range(-1000, 0)
+	var target_y := randf_range(1000, 2000) if randf() > 0.5 else randf_range(-1000, 0)
+	spooked_target_position = Vector2(target_x, target_y)
+	target_projector = null

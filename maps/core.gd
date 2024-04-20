@@ -28,6 +28,7 @@ func apply_charge(value: float) -> void:
 
 func _process(_delta: float) -> void:
 	bar.value = charge
+	$Mask.material.set_shader_parameter("fill_amount", charge / max_charge * 0.5 + 0.5)
 
 	if not $AudioStreamPlayer2D.playing and under_attack:
 		$AudioStreamPlayer2D.play()
