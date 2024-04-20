@@ -25,7 +25,10 @@ func _process(delta):
 		if close_projector.broken and Input.is_action_pressed("projector.repair"):
 			close_projector.repair(delta)
 		elif Input.is_action_just_pressed("projector.toggle"):
-			close_projector.toggle_light()
+			if not close_projector.broken:
+				close_projector.toggle_light()
+			else:
+				print("i'm broke")
 
 
 func _on_projector_detector_area_entered(area: Area2D):
