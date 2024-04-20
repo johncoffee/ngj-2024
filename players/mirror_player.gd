@@ -23,14 +23,23 @@ func _process(delta: float) -> void:
 	for light_source in light_sources:
 		var direction: Vector2 = (position - light_source.position).normalized()
 		var dot: = maxf(direction.dot(-$MirrorRoot.transform.y), 0)
-		var beam: Line2D = light_sources[light_source]
 		var length = 500 * dot
-		beam.points[1] = -direction.reflect($MirrorRoot.transform.y) * length
+		var beam: Line2D = light_sources[light_source]
 		var raycast: RayCast2D = beam.get_node("RayCast")
-		raycast.target_position = beam.points[1]
+		var particles: GPUParticles2D = beam.get_node("ImpactParticles")
+		raycast.target_position = -direction.reflect($MirrorRoot.transform.y) * length
 		
 		var collider = raycast.get_collider()
-		if collider: collider.apply_damage(damage * delta)
+		if collider:
+			collider.apply_damage(damage * delta)
+			length = (collider.position - position).length()
+		
+		
+		beam.points[1] = -direction.reflect($MirrorRoot.transform.y) * length
+		
+		particles.emitting = dot > 0.0
+		particles.amount = 32 if collider else 8
+		particles.position = beam.points[1]
 
 
 func register_light(light_source) -> void:

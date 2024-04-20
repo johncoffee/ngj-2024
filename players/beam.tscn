@@ -1,7 +1,48 @@
-[gd_scene format=3 uid="uid://d4i4f3741o1y2"]
+[gd_scene load_steps=8 format=3 uid="uid://d4i4f3741o1y2"]
+
+[ext_resource type="Texture2D" uid="uid://c53bjfu2j6ruw" path="res://textures/star_07.png" id="1_45kvn"]
+
+[sub_resource type="Curve" id="Curve_fx8j5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.315602), -2.0278, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_hplis"]
+_data = [Vector2(0, 0.560783), 0.0, 2.0204, 0, 0, Vector2(0.183178, 1), 0.0, 0.0, 0, 0, Vector2(0.828037, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.47663, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_oa0j3"]
+curve = SubResource("Curve_hplis")
+
+[sub_resource type="Curve" id="Curve_6l5xj"]
+_data = [Vector2(0, 0.302179), 0.0, 0.0, 0, 0, Vector2(0.224299, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.36169, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_0pvl3"]
+curve = SubResource("Curve_6l5xj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6k5wm"]
+particle_flag_disable_z = true
+angular_velocity_min = 100.0
+angular_velocity_max = 180.0
+radial_velocity_min = 10.0
+radial_velocity_max = 20.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+scale_min = 0.2
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_0pvl3")
+color = Color(1, 1, 0, 1)
+alpha_curve = SubResource("CurveTexture_oa0j3")
 
 [node name="Line2D" type="Line2D"]
 points = PackedVector2Array(0, 0, 0, 0)
-default_color = Color(1, 1, 0, 1)
+width = 50.0
+width_curve = SubResource("Curve_fx8j5")
+default_color = Color(1, 1, 0, 0.521569)
 
 [node name="RayCast" type="RayCast2D" parent="."]
+
+[node name="ImpactParticles" type="GPUParticles2D" parent="."]
+z_index = 1
+process_material = SubResource("ParticleProcessMaterial_6k5wm")
+texture = ExtResource("1_45kvn")
+lifetime = 0.8
