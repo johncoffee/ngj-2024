@@ -16,10 +16,23 @@ var player_id: int
 @onready var shoot_action: = "p%d.shoot" % player_id
 
 
+func _ready() -> void:
+    $Camera.current = false
+    $Camera.cull_mask = 0b1 | 1 << player_id
+
+
 func _process(delta: float) -> void:
 	var movement_input: = Input.get_axis(move_left_action, move_right_action)
 	progress += movement_input * speed * delta
 
+    var movement_input: = Input.get_axis(move_left_action, move_right_action)
+    progress += movement_input * speed * delta
+    
+    if Input.is_action_just_pressed(shoot_action):
+        var collider = $RayCast.get_collider()
+        
+        if collider: collider.free()
+    
 func shoot():
 	bullets -= 1
 	var projectile = load("res://bullet/bullet.tscn")
