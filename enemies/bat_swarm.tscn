@@ -28,12 +28,17 @@ radius = 99.0808
 script = ExtResource("1_a0o32")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-amount = 30
+position = Vector2(-1, 0)
+amount = 40
 process_material = SubResource("ParticleProcessMaterial_hd3yh")
 texture = ExtResource("1_e1ddf")
-lifetime = 20.0
+lifetime = 5.0
+visibility_rect = Rect2(-500, -500, 2000, 2000)
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-1.77056, -0.637373)
+rotation = -2.45051
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_qiw3g")

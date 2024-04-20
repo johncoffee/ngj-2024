@@ -1,3 +1,4 @@
+class_name ProjectorPlayer
 extends CharacterBody2D
 
 @export var speed := 300
@@ -27,8 +28,6 @@ func _process(delta):
 		elif Input.is_action_just_pressed("projector.toggle"):
 			if not close_projector.broken:
 				close_projector.toggle_light()
-			else:
-				print("i'm broke")
 
 
 func _on_projector_detector_area_entered(area: Area2D):

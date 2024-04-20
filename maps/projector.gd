@@ -5,6 +5,9 @@ extends Area2D
 @export var max_hp := 100.0
 @export var repair_speed := 50.0
 
+@onready var bat_attractor_position = $BatAttractor.global_position
+var has_bat := false
+
 var light_on := false:
 	set(value):
 		light_on = value

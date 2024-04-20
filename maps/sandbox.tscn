@@ -74,8 +74,8 @@ position = Vector2(1249, -507)
 
 [node name="GroundProtoAkien" type="StaticBody2D" parent="."]
 position = Vector2(960, 540)
-collision_layer = 4
-collision_mask = 4
+collision_layer = 2
+collision_mask = 2
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="GroundProtoAkien"]
@@ -89,8 +89,6 @@ shape = SubResource("CircleShape2D_05bvq")
 
 [node name="ProjectorPlayer" parent="." instance=ExtResource("4_c0g6v")]
 position = Vector2(497, 261)
-collision_layer = 4
-collision_mask = 4
 
 [node name="MirrorPlayer" parent="." instance=ExtResource("5_jj7na")]
 position = Vector2(1088, 657)
