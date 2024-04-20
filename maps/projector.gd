@@ -7,6 +7,7 @@ extends Area2D
 
 @onready var bat_attractor_position = $BatAttractor.global_position
 var has_bat := false
+var under_attack := false
 
 var light_on := false:
 	set(value):
@@ -45,12 +46,22 @@ func _ready():
 		light_on = randf() < 0.5
 		hp = randf_range(max_hp / 2.0, max_hp)
 
+	area_entered.connect(_on_projector_area_entered)
+	area_exited.connect(_on_projector_area_exited)
+
+
+func _process(delta):
+	if $AudioStreamPlayer2D.playing and (hp <= 0 or not under_attack):
+		$AudioStreamPlayer2D.stop()
+	elif under_attack and not $AudioStreamPlayer2D.playing:
+		$AudioStreamPlayer2D.play()
+
 
 func damage(amount: float):
 	hp = max(hp - amount, 0)
 	if hp == 0:
 		broken = true
-	$AudioStreamPlayer2D.play()
+
 
 func repair(delta: float):
 	if hp < max_hp:
@@ -68,6 +79,20 @@ func toggle_light():
 
 func pan(offset: float):
 	rotation_degrees += offset * pan_speed
+
+
+func _on_projector_area_entered(_area: Area2D):
+	if not has_bat:
+		under_attack = false
+		return
+	for area in get_overlapping_areas():
+		if area.get_parent() is BatSwarm:
+			under_attack = true
+
+
+func _on_projector_area_exited(_area: Area2D):
+	if not has_bat:
+		under_attack = false
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

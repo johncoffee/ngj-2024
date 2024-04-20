@@ -68,4 +68,3 @@ func apply_damage(value: float) -> void:
 	current_health -= value
 	if current_health <= 0.0: 
 		push_error("YOU'VE LOST, DUMMY")
-		breakpoint
