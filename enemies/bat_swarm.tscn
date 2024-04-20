@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwg8etvs2mqwq"]
+[gd_scene load_steps=6 format=3 uid="uid://dju5wkp48o4u3"]
 
 [ext_resource type="Script" path="res://enemies/bat_swarm.gd" id="1_a0o32"]
-[ext_resource type="Texture2D" uid="uid://7qvs0w3dc4kn" path="res://icon.svg" id="1_e1ddf"]
+[ext_resource type="Texture2D" uid="uid://crcqv6oxcfyn3" path="res://textures/bat.png" id="2_puirq"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tv1c1"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = true
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hd3yh"]
 particle_flag_disable_z = true
@@ -14,6 +20,10 @@ scale_min = 0.2
 scale_max = 0.3
 hue_variation_min = 0.1
 hue_variation_max = 0.1
+anim_speed_min = 10.0
+anim_speed_max = 30.0
+anim_offset_min = 0.5
+anim_offset_max = 1.0
 turbulence_enabled = true
 turbulence_noise_strength = 5.0
 turbulence_influence_min = 0.2
@@ -28,10 +38,11 @@ radius = 99.0808
 script = ExtResource("1_a0o32")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_tv1c1")
 position = Vector2(-1, 0)
 amount = 40
 process_material = SubResource("ParticleProcessMaterial_hd3yh")
-texture = ExtResource("1_e1ddf")
+texture = ExtResource("2_puirq")
 lifetime = 5.0
 visibility_rect = Rect2(-500, -500, 2000, 2000)
 
