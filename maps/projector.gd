@@ -5,6 +5,9 @@ extends Area2D
 @export var max_hp := 100.0
 @export var repair_speed := 50.0
 
+@onready var bat_attractor_position = $BatAttractor.global_position
+var has_bat := false
+
 var light_on := false:
 	set(value):
 		light_on = value
@@ -47,7 +50,7 @@ func damage(amount: float):
 	hp = max(hp - amount, 0)
 	if hp == 0:
 		broken = true
-
+	$AudioStreamPlayer2D.play()
 
 func repair(delta: float):
 	if hp < max_hp:
@@ -55,6 +58,7 @@ func repair(delta: float):
 	if hp >= max_hp:
 		hp = max_hp
 		broken = false
+		light_on = true
 
 
 func toggle_light():

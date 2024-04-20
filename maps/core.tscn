@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://drx4yr5iacw6h"]
+[gd_scene load_steps=7 format=3 uid="uid://c7g2oxwiwgakd"]
 
 [ext_resource type="Script" path="res://maps/core.gd" id="1_fp401"]
 [ext_resource type="Texture2D" uid="uid://dtgj3mhr84jna" path="res://textures/turret/turret_001.png" id="1_m5n1r"]
 [ext_resource type="Texture2D" uid="uid://cfkphrbpw5t26" path="res://textures/turret/turret_002.png" id="2_oof8m"]
+[ext_resource type="Theme" uid="uid://bt3vq2xxetwgb" path="res://theme/theme.tres" id="4_yvo56"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iqmug"]
 radius = 31.0161
@@ -21,9 +22,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Core" type="StaticBody2D"]
+[node name="Core" type="CharacterBody2D"]
 position = Vector2(960, 541)
 script = ExtResource("1_fp401")
+metadata/_edit_vertical_guides_ = [945.0, 937.0]
+metadata/_edit_horizontal_guides_ = [589.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.08165e-12, -2)
@@ -36,3 +39,10 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ujxgj")
 autoplay = "default"
 frame_progress = 0.871884
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -82.0
+offset_top = 39.0
+offset_right = 84.0
+offset_bottom = 62.0
+theme = ExtResource("4_yvo56")

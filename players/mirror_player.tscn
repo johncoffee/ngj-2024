@@ -10,7 +10,7 @@ position = Vector2(732, 469)
 script = ExtResource("1_e4ygt")
 damage = 200.0
 speed = 250.0
-rotation_speed = 5.0
+rotation_speed = 3.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uoh81")
@@ -27,3 +27,9 @@ modulate = Color(4, 4, 0, 1)
 position = Vector2(0, 16)
 scale = Vector2(0.6, 0.176)
 texture = ExtResource("2_p350x")
+
+[node name="Health" type="ProgressBar" parent="."]
+offset_left = -45.0
+offset_top = 36.0
+offset_right = 45.0
+offset_bottom = 59.0

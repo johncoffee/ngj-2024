@@ -1,7 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwg8etvs2mqwq"]
+[gd_scene load_steps=7 format=3 uid="uid://dju5wkp48o4u3"]
 
 [ext_resource type="Script" path="res://enemies/bat_swarm.gd" id="1_a0o32"]
-[ext_resource type="Texture2D" uid="uid://7qvs0w3dc4kn" path="res://icon.svg" id="1_e1ddf"]
+[ext_resource type="Texture2D" uid="uid://crcqv6oxcfyn3" path="res://textures/bat.png" id="2_puirq"]
+[ext_resource type="AudioStream" uid="uid://ble5lrhf4gjr3" path="res://sounds/bat.wav" id="3_fcu4d"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tv1c1"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = true
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hd3yh"]
 particle_flag_disable_z = true
@@ -10,10 +17,11 @@ emission_sphere_radius = 128.0
 orbit_velocity_min = -0.228
 orbit_velocity_max = 0.253
 gravity = Vector3(0, 0, 0)
-scale_min = 0.2
-scale_max = 0.3
-hue_variation_min = 0.1
-hue_variation_max = 0.1
+scale_max = 1.5
+anim_speed_min = 10.0
+anim_speed_max = 30.0
+anim_offset_min = 0.5
+anim_offset_max = 1.0
 turbulence_enabled = true
 turbulence_noise_strength = 5.0
 turbulence_influence_min = 0.2
@@ -22,21 +30,32 @@ turbulence_initial_displacement_min = -7.3
 turbulence_initial_displacement_max = 7.3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qiw3g"]
-radius = 99.0808
+radius = 150.0
 
 [node name="BatSwarm" type="Node2D"]
 script = ExtResource("1_a0o32")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-amount = 30
+material = SubResource("CanvasItemMaterial_tv1c1")
+scale = Vector2(2, 2)
+amount = 40
 process_material = SubResource("ParticleProcessMaterial_hd3yh")
-texture = ExtResource("1_e1ddf")
-lifetime = 20.0
+texture = ExtResource("2_puirq")
+lifetime = 5.0
+visibility_rect = Rect2(-500, -500, 2000, 2000)
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-1.77056, -0.637373)
+rotation = -2.45051
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_qiw3g")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fcu4d")
+autoplay = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

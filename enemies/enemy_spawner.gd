@@ -17,5 +17,5 @@ func _ready() -> void:
 func _spawn(params) -> Node:
 	var new_enemy = load(get_spawnable_scene(params.scene_index)).instantiate()
 	new_enemy.position = get_child(params.spawn_point_index).position
-	new_enemy.target_position = enemy_target.position
+	new_enemy.target = enemy_target
 	return new_enemy

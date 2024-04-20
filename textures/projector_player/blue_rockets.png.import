@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgvpvxtvhxv5s"
-path="res://.godot/imported/ground_proto_akien.png-0e22e6da4785fa67daba7b3bbd0a6e39.ctex"
+uid="uid://trjdciv0moq1"
+path="res://.godot/imported/blue_rockets.png-dcc9b0090b25c84b8a43b8dfabb0e2fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://akien/ground_proto_akien.png"
-dest_files=["res://.godot/imported/ground_proto_akien.png-0e22e6da4785fa67daba7b3bbd0a6e39.ctex"]
+source_file="res://textures/projector_player/blue_rockets.png"
+dest_files=["res://.godot/imported/blue_rockets.png-dcc9b0090b25c84b8a43b8dfabb0e2fc.ctex"]
 
 [params]
 
