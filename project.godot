@@ -26,9 +26,9 @@ window/size/window_height_override=1080
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
-[editor_plugins]
+[filesystem]
 
-enabled=PackedStringArray("res://addons/nklbdev.importality/plugin.cfg")
+import/blender/enabled=false
 
 [gui]
 
