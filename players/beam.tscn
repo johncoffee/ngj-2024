@@ -43,6 +43,7 @@ default_color = Color(1, 1, 0, 0.521569)
 
 [node name="ImpactParticles" type="GPUParticles2D" parent="."]
 z_index = 1
+amount = 32
 process_material = SubResource("ParticleProcessMaterial_6k5wm")
 texture = ExtResource("1_45kvn")
 lifetime = 0.8
