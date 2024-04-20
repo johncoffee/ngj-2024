@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 
+@export var damage: float
 @export var speed: float
 @export var rotation_speed: float
 
@@ -24,7 +25,13 @@ func _process(delta: float) -> void:
 		var length: float = (position - light_source.position).length()
 		var dot: = maxf(direction.dot(-$MirrorRoot.transform.y), 0)
 		var beam: Line2D = light_sources[light_source]
-		beam.points[1] = -direction.reflect($MirrorRoot.transform.y) / length * 30000 * dot
+		length = 30000 / length * dot
+		beam.points[1] = -direction.reflect($MirrorRoot.transform.y) * length
+		var raycast: RayCast2D = beam.get_node("RayCast")
+		raycast.target_position = beam.points[1]
+		
+		var collider = raycast.get_collider()
+		if collider: collider.apply_damage(damage * delta)
 
 
 func register_light(light_source) -> void:

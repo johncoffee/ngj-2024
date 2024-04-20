@@ -8,6 +8,7 @@
 [node name="MirrorPlayer" type="CharacterBody2D" groups=["mirror"]]
 position = Vector2(732, 469)
 script = ExtResource("1_e4ygt")
+damage = 100.0
 speed = 100.0
 rotation_speed = 5.0
 

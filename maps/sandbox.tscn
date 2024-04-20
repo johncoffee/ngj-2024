@@ -18,7 +18,7 @@ radius = 201.04
 [node name="EnemySpawner" type="Node2D" parent="." node_paths=PackedStringArray("enemy_parent", "enemy_target")]
 position = Vector2(385, 156)
 script = ExtResource("1_swf8v")
-interval = 1.0
+interval = 3.0
 enemy = ExtResource("2_4dy0r")
 enemy_parent = NodePath("..")
 enemy_target = NodePath("../Core")
