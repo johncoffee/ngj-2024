@@ -1,15 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://qmlivrqeg4pq"]
+[gd_scene load_steps=9 format=3 uid="uid://qmlivrqeg4pq"]
 
 [ext_resource type="Script" path="res://enemies/enemy_spawner.gd" id="1_swf8v"]
 [ext_resource type="PackedScene" uid="uid://cbcrqsogtxevg" path="res://enemies/vampire.tscn" id="2_4dy0r"]
+[ext_resource type="Texture2D" uid="uid://cgvpvxtvhxv5s" path="res://akien/ground_proto_akien.png" id="3_i3f81"]
+[ext_resource type="PackedScene" uid="uid://bf1y1a0oplbs1" path="res://players/projector_player.tscn" id="4_c0g6v"]
+[ext_resource type="PackedScene" uid="uid://yrrfmbliq41n" path="res://players/mirror_player.tscn" id="5_jj7na"]
+[ext_resource type="PackedScene" uid="uid://dq64kjqwly66a" path="res://maps/projector.tscn" id="6_ybpnd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6hvq5"]
 radius = 22.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_05bvq"]
+radius = 201.04
+
 [node name="Sandbox" type="Node2D"]
 
 [node name="EnemySpawner" type="Node2D" parent="." node_paths=PackedStringArray("enemy_parent", "enemy_target")]
-position = Vector2(289, 225)
+position = Vector2(385, 156)
 script = ExtResource("1_swf8v")
 interval = 1.0
 enemy = ExtResource("2_4dy0r")
@@ -17,9 +24,47 @@ enemy_parent = NodePath("..")
 enemy_target = NodePath("../Core")
 
 [node name="Core" type="Area2D" parent="."]
-position = Vector2(325, 164)
+position = Vector2(509, 274)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Core"]
 position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_6hvq5")
 debug_color = Color(0.894118, 0.298039, 0.309804, 0.419608)
+
+[node name="GroundProtoAkien" type="StaticBody2D" parent="."]
+position = Vector2(506, 275)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="GroundProtoAkien"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_i3f81")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundProtoAkien"]
+shape = SubResource("CircleShape2D_05bvq")
+
+[node name="ProjectorPlayer" parent="." instance=ExtResource("4_c0g6v")]
+position = Vector2(139, 199)
+collision_layer = 4
+collision_mask = 4
+
+[node name="MirrorPlayer" parent="." instance=ExtResource("5_jj7na")]
+position = Vector2(600, 376)
+
+[node name="Projectors" type="Node2D" parent="."]
+
+[node name="Projector1" parent="Projectors" instance=ExtResource("6_ybpnd")]
+position = Vector2(251, 278)
+rotation = -1.57037
+
+[node name="Projector2" parent="Projectors" instance=ExtResource("6_ybpnd")]
+position = Vector2(495, 37)
+
+[node name="Projector3" parent="Projectors" instance=ExtResource("6_ybpnd")]
+position = Vector2(753, 277)
+rotation = 1.56141
+
+[node name="Projector4" parent="Projectors" instance=ExtResource("6_ybpnd")]
+position = Vector2(502, 512)
+rotation = 3.13601

@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://bf1y1a0oplbs1"]
 
-[ext_resource type="Script" path="res://akien/projector_player.gd" id="1_4xl8a"]
+[ext_resource type="Script" path="res://players/projector_player.gd" id="1_4xl8a"]
 [ext_resource type="Texture2D" uid="uid://7qvs0w3dc4kn" path="res://icon.svg" id="1_uknuu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmjrj"]
-size = Vector2(64, 64)
+size = Vector2(26, 26)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6qwll"]
-radius = 64.0
+radius = 37.0135
 
 [node name="ProjectorPlayer" type="CharacterBody2D"]
 script = ExtResource("1_4xl8a")
@@ -16,7 +16,7 @@ script = ExtResource("1_4xl8a")
 shape = SubResource("RectangleShape2D_mmjrj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_uknuu")
 
 [node name="ProjectorDetector" type="Area2D" parent="."]

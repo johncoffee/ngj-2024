@@ -11,6 +11,7 @@ var broken := false
 
 func _ready():
 	$LightAnchor.visible = light_on
+	$LightArea.monitoring = light_on
 
 
 func repair(delta: float):
@@ -25,8 +26,19 @@ func repair(delta: float):
 func toggle_light():
 	assert(not broken)
 	light_on = not light_on
+	$LightArea.monitoring = light_on
 	$LightAnchor.visible = light_on
 
 
 func pan(offset: float):
 	$LightAnchor.rotation_degrees += offset * pan_speed
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if not body.is_in_group("mirror"): return
+	body.register_light(self)
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if not body.is_in_group("mirror"): return
+	body.unregister_light(self)

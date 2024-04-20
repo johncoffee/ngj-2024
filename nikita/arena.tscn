@@ -1,11 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://mpv5xc312fxn"]
+[gd_scene load_steps=5 format=3 uid="uid://mpv5xc312fxn"]
 
 [ext_resource type="Texture2D" uid="uid://7qvs0w3dc4kn" path="res://icon.svg" id="1_vklra"]
-[ext_resource type="Script" path="res://nikita/player.gd" id="2_ogvgh"]
+[ext_resource type="PackedScene" uid="uid://yrrfmbliq41n" path="res://players/mirror_player.tscn" id="2_35oo8"]
 [ext_resource type="Script" path="res://nikita/light_source.gd" id="3_s378f"]
-[ext_resource type="PackedScene" uid="uid://d4i4f3741o1y2" path="res://nikita/beam.tscn" id="3_utftq"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_uoh81"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqe0h"]
 size = Vector2(119.248, 117.223)
@@ -20,29 +17,7 @@ scale = Vector2(9.82812, 8.51562)
 texture = ExtResource("1_vklra")
 metadata/_edit_lock_ = true
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(732, 469)
-script = ExtResource("2_ogvgh")
-speed = 100.0
-rotation_speed = 5.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CircleShape2D_uoh81")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-light_mask = 2
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_vklra")
-
-[node name="MirrorRoot" type="Node2D" parent="CharacterBody2D"]
-
-[node name="Mirror" type="Sprite2D" parent="CharacterBody2D/MirrorRoot"]
-modulate = Color(4, 4, 0, 1)
-position = Vector2(0, 5)
-scale = Vector2(0.265625, 0.078125)
-texture = ExtResource("1_vklra")
-
-[node name="Line2D" parent="CharacterBody2D" instance=ExtResource("3_utftq")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_35oo8")]
 
 [node name="Beam" type="Sprite2D" parent="."]
 position = Vector2(72, 591)

@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 
 
 func register_light(light_source) -> void:
-	var beam = load("res://beam.tscn").instantiate()
+	var beam = load("res://players/beam.tscn").instantiate()
 	add_child(beam)
 	light_sources[light_source] = beam
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c1hvd3t2gy6ex"]
 
 [ext_resource type="Texture2D" uid="uid://cgvpvxtvhxv5s" path="res://akien/ground_proto_akien.png" id="1_m1ab6"]
-[ext_resource type="PackedScene" uid="uid://bf1y1a0oplbs1" path="res://akien/projector_player.tscn" id="2_dqmrj"]
-[ext_resource type="PackedScene" uid="uid://dq64kjqwly66a" path="res://akien/projector_proto_akien.tscn" id="3_h5wyh"]
+[ext_resource type="PackedScene" uid="uid://bf1y1a0oplbs1" path="res://players/projector_player.tscn" id="2_dqmrj"]
+[ext_resource type="PackedScene" uid="uid://dq64kjqwly66a" path="res://maps/projector.tscn" id="3_h5wyh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a81xu"]
 radius = 250.0
