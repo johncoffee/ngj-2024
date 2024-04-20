@@ -27,6 +27,7 @@ texture = ExtResource("3_1fb0u")
 modulate = Color(1, 1, 1, 0.176471)
 position = Vector2(0.000800133, 257)
 rotation = 3.14159
+color = Color(0.960784, 0.662745, 0.356863, 1)
 texture = ExtResource("4_kmjxh")
 
 [node name="LightArea" type="Area2D" parent="."]
