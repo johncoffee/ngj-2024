@@ -24,10 +24,12 @@ func _process(delta):
 	
 	if current_health <= 0.0: queue_free()
 	current_health = min(current_health + regen * delta, health)
-	
+
 	if (target.position - position).length_squared() < 30:
 		target.apply_damage(damage)
 
-
 func apply_charge(value: float) -> void:
+	if current_health - value <= 0:
+		EnemyEvents.enemy_died.emit()
+
 	current_health -= value

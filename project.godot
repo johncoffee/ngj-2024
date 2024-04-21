@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 ControllerIcons="*res://addons/controller_icons/ControllerIcons.gd"
 EzTransitions="*res://addons/ez_transitions/objects/plugin_singleton/plugin_singleton_script.gd"
+EnemyEvents="*res://enemies/EnemyEvents.gd"
 
 [display]
 

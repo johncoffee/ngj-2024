@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://i0le6kh68aio"]
+
+[ext_resource type="Script" path="res://ui/ui_manager.gd" id="1_f05r3"]
+[ext_resource type="LabelSettings" uid="uid://cjbwagdplrbd2" path="res://ui/new_label_settings.tres" id="2_eanc5"]
+
+[node name="Test-ui" type="Node3D"]
+
+[node name="GameUI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="GameUI"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 30.0
+offset_right = 20.0
+offset_bottom = 72.12
+grow_horizontal = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer" type="BoxContainer" parent="GameUI/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 45.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameUI/Control/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer" type="BoxContainer" parent="GameUI/Control/BoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="GameUI/Control/BoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "4200 points"
+label_settings = ExtResource("2_eanc5")
+
+[node name="BoxContainer2" type="BoxContainer" parent="GameUI/Control/BoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TutorialCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="TutorialCanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 30.0
+offset_right = 1126.0
+offset_bottom = 136.0
+
+[node name="BoxContainer" type="BoxContainer" parent="TutorialCanvasLayer/Control"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 26.0
+offset_right = 1118.0
+offset_bottom = 71.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TutorialCanvasLayer/Control/BoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="TutorialCanvasLayer/Control/BoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "WASD to move"
+label_settings = ExtResource("2_eanc5")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TutorialCanvasLayer/Control/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TutorialCanvasLayer/Control/BoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="TutorialCanvasLayer/Control/BoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Arrow keys to move"
+label_settings = ExtResource("2_eanc5")
+
+[node name="UIManager" type="Node" parent="."]
+script = ExtResource("1_f05r3")
