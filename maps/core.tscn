@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://v75k20qenhpc" path="res://sounds/hits.wav" id="5_7afbi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iqmug"]
-radius = 31.0161
+radius = 74.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qm8fn"]
 shader = ExtResource("2_dg5rm")
@@ -34,7 +34,6 @@ animations = [{
 }]
 
 [node name="Core" type="CharacterBody2D"]
-position = Vector2(960, 541)
 script = ExtResource("1_fp401")
 metadata/_edit_vertical_guides_ = [945.0, 937.0]
 metadata/_edit_horizontal_guides_ = [589.0]

@@ -1,15 +1,18 @@
+@tool
 class_name Projector
 extends Area2D
 
 @export var pan_speed := 100.0
 @export var max_hp := 100.0
 @export var repair_speed := 50.0
+@export var randomised: = true
 
 @onready var bat_attractor_position = $BatAttractor.global_position
 var has_bat := false
 var under_attack := false
 
-var light_on := false:
+
+@export var light_on := false:
 	set(value):
 		light_on = value
 		$LightBeam.visible = value
@@ -17,12 +20,12 @@ var light_on := false:
 		$SpriteOpen.visible = value
 		$SpriteClosed.visible = not value
 
-var hp: float = max_hp:
+@export var hp: float = max_hp:
 	set(value):
 		hp = value
 		$ProgressBar.value = value
 
-var broken := false:
+@export var broken := false:
 	set(value):
 		broken = value
 		if broken:
@@ -32,16 +35,17 @@ var broken := false:
 
 
 func _ready():
+	if randomised:
 	# Randomly break and damage some on start.
-	if randf() < 0.3:
-		broken = true
-		light_on = false
-		hp = randf_range(0, max_hp / 2.0)
-	else:
-		broken = false
-		# Randomly turn some on.
-		light_on = randf() < 0.5
-		hp = randf_range(max_hp / 2.0, max_hp)
+		if randf() < 0.3:
+			broken = true
+			light_on = false
+			hp = randf_range(0, max_hp / 2.0)
+		else:
+			broken = false
+			# Randomly turn some on.
+			light_on = randf() < 0.5
+			hp = randf_range(max_hp / 2.0, max_hp)
 
 	area_entered.connect(_on_projector_area_entered)
 	area_exited.connect(_on_projector_area_exited)
