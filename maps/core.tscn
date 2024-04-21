@@ -24,13 +24,64 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_oof8m")
+}],
+"loop": true,
+"name": &"charging",
+"speed": 10.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_pw7y2")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m5n1r")
+}, {
+"duration": 0.9,
+"texture": ExtResource("2_oof8m")
+}, {
+"duration": 0.8,
+"texture": ExtResource("1_m5n1r")
+}, {
+"duration": 0.7,
+"texture": ExtResource("2_oof8m")
+}, {
+"duration": 0.6,
+"texture": ExtResource("1_m5n1r")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_oof8m")
+}],
+"loop": false,
+"name": &"starting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m5n1r")
+}, {
+"duration": 1.2,
+"texture": ExtResource("2_oof8m")
+}, {
+"duration": 1.4,
+"texture": ExtResource("1_m5n1r")
+}, {
+"duration": 1.6,
+"texture": ExtResource("2_oof8m")
+}, {
+"duration": 1.8,
+"texture": ExtResource("1_m5n1r")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_oof8m")
+}],
+"loop": false,
+"name": &"stopping",
+"speed": 10.0
 }]
 
 [node name="Core" type="CharacterBody2D"]
@@ -57,8 +108,8 @@ z_index = 2
 position = Vector2(0, -44)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ujxgj")
+animation = &"starting"
 autoplay = "default"
-frame_progress = 0.879726
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -82.0
