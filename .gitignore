@@ -19,5 +19,13 @@ mono_crash.*.json
 .DS_Store
 
 # Builds
-builds/
+builds/windows/*.exe
+builds/windows/*.pck
+
+builds/linux/*.x86_64
+builds/linux/*.pck
+
+builds/osx/*.app
+builds/osx/*.dmg
+
 *.app*
