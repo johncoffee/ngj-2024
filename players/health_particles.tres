@@ -1,0 +1,15 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://xgxt3sn68c6q"]
+
+[resource]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+gravity = Vector3(0, 98, 0)
+scale_min = 5.0
+scale_max = 10.0
+color = Color(0.549401, 0.753861, 0.192815, 1)
+hue_variation_min = 2.08167e-17
+hue_variation_max = 0.45
+anim_speed_min = 3.74
+anim_speed_max = 13.67
+anim_offset_max = 0.3958

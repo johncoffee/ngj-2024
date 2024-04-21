@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://bt3vq2xxetwgb" path="res://theme/theme.tres" id="5_hfrpy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uoh81"]
+radius = 15.0
 
 [sub_resource type="Animation" id="Animation_ojere"]
 length = 0.001
@@ -73,25 +74,28 @@ rotation_speed = 5.0
 shape = SubResource("CircleShape2D_uoh81")
 
 [node name="RedRockets" type="Sprite2D" parent="."]
+position = Vector2(0, 15)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_mb180")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 2
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_t5sp7")
 
 [node name="MirrorRoot" type="Node2D" parent="."]
 
 [node name="Mirror" type="Sprite2D" parent="MirrorRoot"]
 modulate = Color(4, 4, 0, 1)
-position = Vector2(0, 16)
+position = Vector2(0, 19)
 scale = Vector2(0.6, 0.0625001)
 texture = ExtResource("2_p350x")
 
 [node name="Health" type="ProgressBar" parent="."]
 offset_left = -45.0
-offset_top = 36.0
+offset_top = 60.0
 offset_right = 45.0
-offset_bottom = 59.0
+offset_bottom = 96.0
 theme = ExtResource("5_hfrpy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

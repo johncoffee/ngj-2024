@@ -16,6 +16,9 @@ func _process(delta):
 			"projector.move.left", "projector.move.right",
 			"projector.move.up", "projector.move.down",
 	)
+
+	update_animations(direction, delta)
+
 	velocity = direction * speed
 	move_and_slide()
 
@@ -25,9 +28,12 @@ func _process(delta):
 
 		if Input.is_action_pressed("projector.repair"):
 			close_projector.repair(delta)
+			%GPUParticles2D.emitting = true
 		elif Input.is_action_just_pressed("projector.toggle"):
 			if not close_projector.broken:
 				close_projector.toggle_light()
+		else:
+			%GPUParticles2D.emitting = false
 
 
 func _on_projector_detector_area_entered(area: Area2D):
@@ -38,3 +44,12 @@ func _on_projector_detector_area_entered(area: Area2D):
 func _on_projector_detector_area_exited(area: Area2D):
 	if area is Projector:
 		close_projector = null
+
+
+func update_animations(input: Vector2, delta: float) -> void:
+	if input.length_squared() < 0.0001:
+		$AnimationPlayer.play("hovering")
+	else:
+		$AnimationPlayer.play("flying")
+	input.y *= -1
+	$BlueRockets.rotation = lerp_angle($BlueRockets.rotation, input.angle_to(Vector2.DOWN), delta * 10)
