@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://di0rrydaebrla"]
+
+[ext_resource type="AudioStream" uid="uid://dvnmylqmfd82" path="res://sounds/music.ogg" id="1_2p3gg"]
+
+[node name="Music" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_2p3gg")
+volume_db = -6.0
+autoplay = true
