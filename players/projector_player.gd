@@ -25,9 +25,12 @@ func _process(delta):
 
 		if Input.is_action_pressed("projector.repair"):
 			close_projector.repair(delta)
+			%GPUParticles2D.emitting = true
 		elif Input.is_action_just_pressed("projector.toggle"):
 			if not close_projector.broken:
 				close_projector.toggle_light()
+		else:
+			%GPUParticles2D.emitting = false
 
 
 func _on_projector_detector_area_entered(area: Area2D):

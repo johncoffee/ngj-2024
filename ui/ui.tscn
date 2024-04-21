@@ -85,4 +85,5 @@ layout_mode = 2
 text = "Arrow keys to move"
 
 [node name="UIManager" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("1_f05r3")

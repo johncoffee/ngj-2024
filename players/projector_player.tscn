@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bf1y1a0oplbs1"]
+[gd_scene load_steps=6 format=3 uid="uid://bf1y1a0oplbs1"]
 
 [ext_resource type="Script" path="res://players/projector_player.gd" id="1_4xl8a"]
 [ext_resource type="Texture2D" uid="uid://5syj4lsyhv0v" path="res://textures/projector_player/blue_head.png" id="2_ds7or"]
+[ext_resource type="Material" uid="uid://xgxt3sn68c6q" path="res://players/health_particles.tres" id="3_j7yk1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmjrj"]
 size = Vector2(64, 64)
@@ -24,3 +25,9 @@ texture = ExtResource("2_ds7or")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectorDetector"]
 shape = SubResource("CircleShape2D_6qwll")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+process_material = ExtResource("3_j7yk1")
+one_shot = true
