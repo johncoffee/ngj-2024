@@ -73,5 +73,12 @@ func update_animations(input: Vector2, delta: float) -> void:
 
 func apply_damage(value: float) -> void:
 	current_health -= value
-	if current_health <= 0.0: 
-		push_error("YOU'VE LOST, DUMMY")
+	if current_health <= 0.0:
+		process_mode = Node.PROCESS_MODE_DISABLED
+		EzTransitions.set_easing(0, 1)
+		EzTransitions.set_trans(0, 0)
+		EzTransitions.set_timers(1.5, 0, 1.5)
+		EzTransitions.set_reverse(false, false)
+		EzTransitions.set_textures("res://addons/ez_transitions/images/black_texture.png", "res://addons/ez_transitions/images/black_texture.png")
+		EzTransitions.set_types(3, 4)
+		EzTransitions.change_scene("res://ui/game_over.tscn")

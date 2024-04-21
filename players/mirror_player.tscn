@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://yrrfmbliq41n"]
+[gd_scene load_steps=11 format=3 uid="uid://yrrfmbliq41n"]
 
 [ext_resource type="Script" path="res://players/mirror_player.gd" id="1_e4ygt"]
 [ext_resource type="Texture2D" uid="uid://7qvs0w3dc4kn" path="res://icon.svg" id="2_p350x"]
 [ext_resource type="Texture2D" uid="uid://bjcge5o1kyest" path="res://textures/mirror_player/red_head.png" id="2_t5sp7"]
 [ext_resource type="Texture2D" uid="uid://rsi4jdu8xrg1" path="res://textures/mirror_player/red_rockets.png" id="3_mb180"]
+[ext_resource type="Theme" uid="uid://bt3vq2xxetwgb" path="res://theme/theme.tres" id="5_hfrpy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uoh81"]
 
@@ -91,6 +92,7 @@ offset_left = -45.0
 offset_top = 36.0
 offset_right = 45.0
 offset_bottom = 59.0
+theme = ExtResource("5_hfrpy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

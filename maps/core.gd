@@ -35,5 +35,13 @@ func _process(_delta: float) -> void:
 	elif $AudioStreamPlayer2D.playing and not under_attack:
 		$AudioStreamPlayer2D.stop()
 
-	if charge <= 0.0: push_error("WELL GG")
+	if charge <= 0.0:
+		process_mode = Node.PROCESS_MODE_DISABLED
+		EzTransitions.set_easing(0, 1)
+		EzTransitions.set_trans(0, 0)
+		EzTransitions.set_timers(1.5, 0, 1.5)
+		EzTransitions.set_reverse(false, false)
+		EzTransitions.set_textures("res://addons/ez_transitions/images/black_texture.png", "res://addons/ez_transitions/images/black_texture.png")
+		EzTransitions.set_types(3, 4)
+		EzTransitions.change_scene("res://ui/game_over.tscn")
 	if charge >= max_charge: push_error("NICE JOB")

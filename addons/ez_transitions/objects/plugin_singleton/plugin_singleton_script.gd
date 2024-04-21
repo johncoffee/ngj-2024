@@ -23,7 +23,7 @@ func _ready() -> void:
 	add_child(TRANSITION_OVERLAY)
 	
 	if (plugin_debug_mode): # Checking if the plugin's debug mode is enabled.
-		print_rich("[color=red]Successfully added global TransitionOverlay.") # Debug print.
+		print_rich("[color=green]Successfully added global TransitionOverlay.") # Debug print.
 	
 func plugin_toggle_debug_mode(enabled: bool) -> void:
 	# Enables or disables the plugin's debug mode.

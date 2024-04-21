@@ -1,6 +1,27 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bt3vq2xxetwgb"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bt3vq2xxetwgb"]
 
 [ext_resource type="FontFile" uid="uid://ch5jeedwchi6r" path="res://fonts/Silver.ttf" id="1_r5aml"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8kbx"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5dgf"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0b4y"]
 bg_color = Color(0.266667, 0.215686, 0.168627, 1)
@@ -19,6 +40,9 @@ spacing_bottom = -10
 [resource]
 default_font = SubResource("FontVariation_ow8m6")
 default_font_size = 38
+Button/styles/hover = SubResource("StyleBoxFlat_x8kbx")
+Button/styles/normal = SubResource("StyleBoxFlat_w5dgf")
+Button/styles/pressed = SubResource("StyleBoxFlat_x8kbx")
 LargeLabel/base_type = &"Label"
 LargeLabel/colors/font_color = Color(2.61252e-06, 0.758283, 0.736944, 1)
 LargeLabel/colors/font_outline_color = Color(0, 0, 0, 1)

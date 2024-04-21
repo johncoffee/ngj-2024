@@ -25,7 +25,7 @@ alignment = 1
 [node name="GameOverLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"TitleLabel"
-text = "GAME OVER"
+text = "YOU DIED!"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -34,10 +34,17 @@ size_flags_horizontal = 4
 theme_override_constants/separation = 50
 
 [node name="PlayAgainButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-focus_neighbor_right = NodePath("../QuitToDesktop")
+focus_neighbor_right = NodePath("../GoToMainMenu")
+focus_next = NodePath("../GoToMainMenu")
 text = "Play again"
 
-[node name="QuitToDesktop" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="GoToMainMenu" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../PlayAgainButton")
+focus_previous = NodePath("../PlayAgainButton")
 text = "Quit to Desktop"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/GoToMainMenu" to="." method="_on_go_to_main_menu_pressed"]
