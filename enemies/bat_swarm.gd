@@ -1,6 +1,7 @@
 class_name BatSwarm
 extends Node2D
 
+@export var shoo_time: = 3.0
 @export var damage := 10.0
 
 var target_projector: Projector = null:
@@ -19,7 +20,7 @@ func _process(delta):
 	if spooked:
 		global_position = lerp(global_position, spooked_target_position, delta)
 		if (global_position - spooked_target_position).abs() < Vector2(100, 100):
-			get_tree().create_timer(3.0).timeout.connect(
+			get_tree().create_timer(shoo_time).timeout.connect(
 				func(): spooked = false
 			)
 	else:
