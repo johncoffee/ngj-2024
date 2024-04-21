@@ -29,9 +29,6 @@ var broken := false:
 			light_on = false
 			$ProgressBar.modulate = Color.WHITE
 			$SpriteClosed.modulate = Color.DIM_GRAY
-		else:
-			$ProgressBar.modulate = Color.GREEN_YELLOW
-			$SpriteClosed.modulate = Color.WHITE
 
 
 func _ready():

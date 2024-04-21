@@ -1,13 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://bmc3al0tpaftj"]
+[gd_scene load_steps=22 format=3 uid="uid://b3klo0a4hc6ed"]
 
 [ext_resource type="Theme" uid="uid://bt3vq2xxetwgb" path="res://theme/theme.tres" id="1_47nge"]
 [ext_resource type="PackedScene" uid="uid://yrrfmbliq41n" path="res://players/mirror_player.tscn" id="2_e1yyq"]
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="2_nplhe"]
 [ext_resource type="PackedScene" uid="uid://bf1y1a0oplbs1" path="res://players/projector_player.tscn" id="3_6b666"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="3_tvjic"]
+[ext_resource type="Texture2D" uid="uid://cdqwn0lvabq7" path="res://textures/go_to_arena_circle.png" id="3_xqbll"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_728nn"]
-radius = 154.208
+radius = 171.073
 
 [sub_resource type="Texture2D" id="Texture2D_qcsis"]
 resource_local_to_scene = false
@@ -38,7 +39,7 @@ resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("3_tvjic")
 path = "mirror.move.left"
-show_mode = 0
+show_mode = 1
 force_type = 0
 
 [sub_resource type="Texture2D" id="Texture2D_811dj"]
@@ -46,7 +47,7 @@ resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("3_tvjic")
 path = "mirror.move.down"
-show_mode = 0
+show_mode = 1
 force_type = 0
 
 [sub_resource type="Texture2D" id="Texture2D_5c21c"]
@@ -54,7 +55,7 @@ resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("3_tvjic")
 path = "mirror.move.right"
-show_mode = 0
+show_mode = 1
 force_type = 0
 
 [sub_resource type="Texture2D" id="Texture2D_nj7q0"]
@@ -86,7 +87,7 @@ resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("3_tvjic")
 path = "projector.move.left"
-show_mode = 0
+show_mode = 1
 force_type = 0
 
 [sub_resource type="Texture2D" id="Texture2D_x48vx"]
@@ -94,7 +95,7 @@ resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("3_tvjic")
 path = "projector.move.down"
-show_mode = 0
+show_mode = 1
 force_type = 0
 
 [sub_resource type="Texture2D" id="Texture2D_acsir"]
@@ -102,7 +103,7 @@ resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("3_tvjic")
 path = "projector.move.right"
-show_mode = 0
+show_mode = 1
 force_type = 0
 
 [sub_resource type="Texture2D" id="Texture2D_i5f54"]
@@ -126,50 +127,57 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 47.0
-offset_top = 39.0
-offset_right = 47.0
-offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_47nge")
 script = ExtResource("2_nplhe")
 
-[node name="TitleLabel" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 263.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
 theme_type_variation = &"TitleLabel"
 text = "BURN VAMPIRES, BURN!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GoToArenaLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 760.0
-offset_top = 373.0
-offset_right = 1021.0
-offset_bottom = 426.0
+[node name="GoToArenaLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
 theme_type_variation = &"LargeLabel"
 text = "GO TO THE ARENA"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 350)
+layout_mode = 2
+texture = ExtResource("3_xqbll")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GoToArenaArea2D" type="Area2D" parent="VBoxContainer/TextureRect"]
+unique_name_in_owner = true
+position = Vector2(-120, 168)
+collision_mask = 3
+
+[node name="GoToArenaCollisionShape" type="CollisionShape2D" parent="VBoxContainer/TextureRect/GoToArenaArea2D"]
+position = Vector2(1082, 7)
+shape = SubResource("CircleShape2D_728nn")
 
 [node name="GoToArenaPolygon" type="Polygon2D" parent="."]
+visible = false
 position = Vector2(16, 8)
 color = Color(0, 0.634278, 0.393727, 1)
 polygon = PackedVector2Array(794, 454, 740, 510, 721, 585, 734, 649, 767, 694, 818, 728, 872, 738, 938, 725, 979, 697, 1012, 649, 1024, 602, 1023, 553, 1006, 510, 965, 462, 932, 444, 890, 432, 837, 437)
 
-[node name="GoToArenaArea2D" type="Area2D" parent="GoToArenaPolygon"]
-position = Vector2(-136, 160)
-collision_mask = 3
-
-[node name="GoToArenaCollisionShape" type="CollisionShape2D" parent="GoToArenaPolygon/GoToArenaArea2D"]
-position = Vector2(1010, 425)
-shape = SubResource("CircleShape2D_728nn")
-
 [node name="MirrorPlayer" parent="." instance=ExtResource("2_e1yyq")]
-position = Vector2(283, 718)
+position = Vector2(331, 859)
 
 [node name="Control" type="Control" parent="MirrorPlayer"]
 layout_mode = 3
@@ -194,8 +202,8 @@ offset_left = -124.0
 offset_top = -270.0
 offset_right = 184.0
 offset_bottom = -66.0
-theme_override_constants/h_separation = -25
-theme_override_constants/v_separation = -25
+theme_override_constants/h_separation = -10
+theme_override_constants/v_separation = -10
 columns = 3
 
 [node name="Button3" type="TextureRect" parent="MirrorPlayer/Control/GridContainer"]
@@ -243,7 +251,7 @@ layout_mode = 2
 texture = SubResource("Texture2D_5c21c")
 
 [node name="ProjectorPlayer" parent="." instance=ExtResource("3_6b666")]
-position = Vector2(1461, 715)
+position = Vector2(1413, 853)
 
 [node name="Control" type="Control" parent="ProjectorPlayer"]
 layout_mode = 3
@@ -268,8 +276,8 @@ offset_left = -128.0
 offset_top = -272.0
 offset_right = 122.0
 offset_bottom = -97.0
-theme_override_constants/h_separation = -25
-theme_override_constants/v_separation = -25
+theme_override_constants/h_separation = -10
+theme_override_constants/v_separation = -10
 columns = 3
 
 [node name="Button3" type="TextureRect" parent="ProjectorPlayer/Control/GridContainer"]
@@ -352,4 +360,4 @@ text = "Repair projector"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[connection signal="body_entered" from="GoToArenaPolygon/GoToArenaArea2D" to="." method="_on_go_to_arena_area_2d_body_entered"]
+[connection signal="body_entered" from="VBoxContainer/TextureRect/GoToArenaArea2D" to="." method="_on_go_to_arena_area_2d_body_entered"]

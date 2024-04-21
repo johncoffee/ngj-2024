@@ -1,6 +1,16 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bt3vq2xxetwgb"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bt3vq2xxetwgb"]
 
 [ext_resource type="FontFile" uid="uid://ch5jeedwchi6r" path="res://fonts/Silver.ttf" id="1_r5aml"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0b4y"]
+bg_color = Color(0.266667, 0.215686, 0.168627, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwyom"]
+bg_color = Color(0.417358, 0.55666, 0.0260756, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_ow8m6"]
 base_font = ExtResource("1_r5aml")
@@ -16,6 +26,8 @@ LargeLabel/constants/outline_size = 12
 LargeLabel/font_sizes/font_size = 57
 MirrorPlayerLabel/base_type = &"Label"
 MirrorPlayerLabel/font_sizes/font_size = 57
+ProgressBar/styles/background = SubResource("StyleBoxFlat_m0b4y")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_dwyom")
 ProjectorPlayerLabel/base_type = &"Label"
 ProjectorPlayerLabel/font_sizes/font_size = 57
 TitleLabel/base_type = &"Label"

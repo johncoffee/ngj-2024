@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dq64kjqwly66a"]
+[gd_scene load_steps=8 format=3 uid="uid://dq64kjqwly66a"]
 
 [ext_resource type="Script" path="res://maps/projector.gd" id="1_14a2k"]
 [ext_resource type="Texture2D" uid="uid://70mha7amjdxi" path="res://textures/projector.png" id="2_eagai"]
 [ext_resource type="Texture2D" uid="uid://bop8vtseh4qn2" path="res://textures/projector_closed.png" id="3_1fb0u"]
 [ext_resource type="Texture2D" uid="uid://bmwjkorvpa4ve" path="res://textures/projector_beam.png" id="4_kmjxh"]
+[ext_resource type="Theme" uid="uid://bt3vq2xxetwgb" path="res://theme/theme.tres" id="5_fg58o"]
 [ext_resource type="AudioStream" uid="uid://3qiirmmhsdje" path="res://sounds/projector_breaking.wav" id="5_le54k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_titmn"]
@@ -39,9 +40,10 @@ polygon = PackedVector2Array(-52, 25, -102, 484, 1, 497, 102, 482, 52, 25)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -40.0
-offset_top = -80.0
+offset_top = -88.0
 offset_right = 40.0
 offset_bottom = -70.0
+theme = ExtResource("5_fg58o")
 step = 1.0
 show_percentage = false
 
