@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bf1y1a0oplbs1" path="res://players/projector_player.tscn" id="4_c0g6v"]
 [ext_resource type="PackedScene" uid="uid://yrrfmbliq41n" path="res://players/mirror_player.tscn" id="5_jj7na"]
 [ext_resource type="PackedScene" uid="uid://dq64kjqwly66a" path="res://maps/projector.tscn" id="6_ybpnd"]
-[ext_resource type="PackedScene" uid="uid://i0le6kh68aio" path="res://ui/test-ui.tscn" id="8_ap3mm"]
+[ext_resource type="PackedScene" uid="uid://i0le6kh68aio" path="res://ui/ui.tscn" id="8_ap3mm"]
 [ext_resource type="Script" path="res://maps/level-manager.gd" id="9_8xe0c"]
 [ext_resource type="PackedScene" uid="uid://dju5wkp48o4u3" path="res://enemies/bat_swarm.tscn" id="9_nar3i"]
 
