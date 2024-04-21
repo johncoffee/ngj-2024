@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Nordic Jam"
+config/name="Hell of Mirrors"
 run/main_scene="res://ui/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
