@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://yrrfmbliq41n"]
 
 [ext_resource type="Script" path="res://players/mirror_player.gd" id="1_e4ygt"]
-[ext_resource type="Texture2D" uid="uid://7qvs0w3dc4kn" path="res://icon.svg" id="2_p350x"]
 [ext_resource type="Texture2D" uid="uid://bjcge5o1kyest" path="res://textures/mirror_player/red_head.png" id="2_t5sp7"]
 [ext_resource type="Texture2D" uid="uid://rsi4jdu8xrg1" path="res://textures/mirror_player/red_rockets.png" id="3_mb180"]
+[ext_resource type="Texture2D" uid="uid://ddtrt7uyqeg4d" path="res://textures/mirror_player/mirror.png" id="4_5nya0"]
 [ext_resource type="Theme" uid="uid://bt3vq2xxetwgb" path="res://theme/theme.tres" id="5_hfrpy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uoh81"]
@@ -86,10 +86,9 @@ texture = ExtResource("2_t5sp7")
 [node name="MirrorRoot" type="Node2D" parent="."]
 
 [node name="Mirror" type="Sprite2D" parent="MirrorRoot"]
-modulate = Color(4, 4, 0, 1)
-position = Vector2(0, 19)
-scale = Vector2(0.6, 0.0625001)
-texture = ExtResource("2_p350x")
+position = Vector2(0, 2)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("4_5nya0")
 
 [node name="Health" type="ProgressBar" parent="."]
 offset_left = -45.0
