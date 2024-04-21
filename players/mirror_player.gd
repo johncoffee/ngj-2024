@@ -52,25 +52,28 @@ func _process(delta: float) -> void:
 		var direction: Vector2 = (position - light_source.position).normalized()
 		var dot: = maxf(direction.dot(-$MirrorRoot.transform.y), 0)
 		var length = 500 * dot
-		var beam: Line2D = light_sources[light_source]
+		var beam: Polygon2D = light_sources[light_source]
 		var raycast: RayCast2D = beam.get_node("RayCast")
 		var particles: GPUParticles2D = beam.get_node("ImpactParticles")
-		raycast.target_position = -direction.reflect($MirrorRoot.transform.y) * length
+		var reflected: = -direction.reflect($MirrorRoot.transform.y)
+		reflected = reflected.rotated(-$MirrorRoot.rotation)
+		
+		raycast.target_position = reflected * length
 		
 		var collider = raycast.get_collider()
 		if collider and collider.has_method("apply_charge"):
 			collider.apply_charge(damage * delta)
 			length = (collider.position - position).length()
 		
-		beam.points[1] = -direction.reflect($MirrorRoot.transform.y) * length
+		beam.polygon[0] = reflected * length
 		
 		particles.emitting = dot > 0.0 and collider
-		particles.position = beam.points[1]
+		particles.position = beam.polygon[0]
 
 
 func register_light(light_source) -> void:
 	var beam = load("res://players/beam.tscn").instantiate()
-	add_child(beam)
+	$MirrorRoot.add_child(beam)
 	light_sources[light_source] = beam
 
 

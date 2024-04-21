@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://c53bjfu2j6ruw" path="res://textures/star_07.png" id="1_45kvn"]
 
-[sub_resource type="Curve" id="Curve_fx8j5"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.315602), -2.0278, 0.0, 0, 0]
-point_count = 2
+[sub_resource type="Gradient" id="Gradient_swf8x"]
+colors = PackedColorArray(1, 1, 0, 0.65098, 1, 1, 0, 0.384314)
 
-[sub_resource type="Gradient" id="Gradient_n7agp"]
-offsets = PackedFloat32Array(0, 0.852783, 0.991023)
-colors = PackedColorArray(1, 1, 0, 0.521569, 1, 1, 0, 0.264062, 1, 1, 0, 0)
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yemmq"]
+gradient = SubResource("Gradient_swf8x")
+fill_from = Vector2(0.482906, 0)
+fill_to = Vector2(0.5, 1)
 
 [sub_resource type="Curve" id="Curve_hplis"]
 _data = [Vector2(0, 0.560783), 0.0, 2.0204, 0, 0, Vector2(0.183178, 1), 0.0, 0.0, 0, 0, Vector2(0.828037, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.47663, 0.0, 0, 0]
@@ -37,17 +37,16 @@ scale_curve = SubResource("CurveTexture_0pvl3")
 color = Color(1, 1, 0, 1)
 alpha_curve = SubResource("CurveTexture_oa0j3")
 
-[node name="Line2D" type="Line2D"]
-points = PackedVector2Array(0, 0, 0, 0)
-width = 50.0
-width_curve = SubResource("Curve_fx8j5")
-default_color = Color(1, 1, 0, 0.521569)
-gradient = SubResource("Gradient_n7agp")
+[node name="Line2D" type="Polygon2D"]
+position = Vector2(-1, -8)
+texture = SubResource("GradientTexture2D_yemmq")
+polygon = PackedVector2Array(1, 127, -30, 18, 31, 18)
 
 [node name="RayCast" type="RayCast2D" parent="."]
 
 [node name="ImpactParticles" type="GPUParticles2D" parent="."]
 z_index = 1
+emitting = false
 amount = 32
 process_material = SubResource("ParticleProcessMaterial_6k5wm")
 texture = ExtResource("1_45kvn")
