@@ -25,7 +25,7 @@ texture = ExtResource("2_p350x")
 [node name="Mirror" type="Sprite2D" parent="MirrorRoot"]
 modulate = Color(4, 4, 0, 1)
 position = Vector2(0, 16)
-scale = Vector2(0.6, 0.176)
+scale = Vector2(0.6, 0.0625001)
 texture = ExtResource("2_p350x")
 
 [node name="Health" type="ProgressBar" parent="."]

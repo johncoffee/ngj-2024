@@ -25,10 +25,8 @@ func _process(delta):
 	else:
 		if not target_projector:
 			var projectors = get_tree().get_nodes_in_group("projector")
-			projectors.shuffle()
-			for projector in projectors:
-				if projector.light_on and not projector.has_bat:
-					target_projector = projector
+			var available = projectors.filter(func(p): return p.light_on and not p.has_bat)
+			if available.size() > 0: target_projector = available.pick_random()
 		if target_projector:
 			global_position = lerp(global_position, target_projector.bat_attractor_position, delta)
 

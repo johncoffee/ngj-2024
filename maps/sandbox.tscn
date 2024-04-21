@@ -22,28 +22,28 @@ interval = 5.0
 enemy_target = NodePath("../Core")
 
 [node name="SpawnPoint1" type="Node2D" parent="VampireSpawner"]
-position = Vector2(974, 155)
+position = Vector2(945, 273)
 
 [node name="SpawnPoint2" type="Node2D" parent="VampireSpawner"]
-position = Vector2(1243, 280)
+position = Vector2(1241, 316)
 
 [node name="SpawnPoint3" type="Node2D" parent="VampireSpawner"]
-position = Vector2(1333, 546)
+position = Vector2(1421, 594)
 
 [node name="SpawnPoint4" type="Node2D" parent="VampireSpawner"]
-position = Vector2(1270, 782)
+position = Vector2(1299, 836)
 
 [node name="SpawnPoint5" type="Node2D" parent="VampireSpawner"]
 position = Vector2(968, 916)
 
 [node name="SpawnPoint6" type="Node2D" parent="VampireSpawner"]
-position = Vector2(685, 803)
+position = Vector2(650, 874)
 
 [node name="SpawnPoint7" type="Node2D" parent="VampireSpawner"]
-position = Vector2(575, 557)
+position = Vector2(486, 578)
 
 [node name="SpawnPoint8" type="Node2D" parent="VampireSpawner"]
-position = Vector2(664, 295)
+position = Vector2(657, 332)
 
 [node name="FrankensteinSpawner" type="MultiplayerSpawner" parent="." node_paths=PackedStringArray("enemy_target")]
 _spawnable_scenes = PackedStringArray("res://enemies/frankenstein.tscn")
@@ -53,13 +53,13 @@ interval = 5.0
 enemy_target = NodePath("../MirrorPlayer")
 
 [node name="SpawnPoint1" type="Node2D" parent="FrankensteinSpawner"]
-position = Vector2(974, 155)
+position = Vector2(1068, 267)
 
 [node name="SpawnPoint2" type="Node2D" parent="FrankensteinSpawner"]
-position = Vector2(1243, 280)
+position = Vector2(1303, 364)
 
 [node name="SpawnPoint3" type="Node2D" parent="FrankensteinSpawner"]
-position = Vector2(1333, 546)
+position = Vector2(725, 296)
 
 [node name="VampireEnemyRoot" type="Node" parent="."]
 
