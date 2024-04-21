@@ -1,23 +1,59 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3klo0a4hc6ed"]
+[gd_scene load_steps=21 format=3 uid="uid://bmc3al0tpaftj"]
 
 [ext_resource type="Theme" uid="uid://bt3vq2xxetwgb" path="res://theme/theme.tres" id="1_47nge"]
 [ext_resource type="PackedScene" uid="uid://yrrfmbliq41n" path="res://players/mirror_player.tscn" id="2_e1yyq"]
+[ext_resource type="Script" path="res://ui/main_menu.gd" id="2_nplhe"]
 [ext_resource type="PackedScene" uid="uid://bf1y1a0oplbs1" path="res://players/projector_player.tscn" id="3_6b666"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="3_tvjic"]
 
-[sub_resource type="Texture2D" id="Texture2D_x48vx"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_728nn"]
+radius = 154.208
+
+[sub_resource type="Texture2D" id="Texture2D_qcsis"]
 resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("3_tvjic")
-path = "projector.move.down"
+path = "mirror.move.rotate.left"
 show_mode = 0
 force_type = 0
 
-[sub_resource type="Texture2D" id="Texture2D_5an7m"]
+[sub_resource type="Texture2D" id="Texture2D_h45e0"]
 resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("3_tvjic")
-path = "projector.move.up"
+path = "mirror.move.up"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_au6ha"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_tvjic")
+path = "mirror.move.rotate.right"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_lq8wl"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_tvjic")
+path = "mirror.move.left"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_811dj"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_tvjic")
+path = "mirror.move.down"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_5c21c"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_tvjic")
+path = "mirror.move.right"
 show_mode = 0
 force_type = 0
 
@@ -29,11 +65,11 @@ path = "projector.pan.left"
 show_mode = 0
 force_type = 0
 
-[sub_resource type="Texture2D" id="Texture2D_06861"]
+[sub_resource type="Texture2D" id="Texture2D_5an7m"]
 resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("3_tvjic")
-path = "projector.move.left"
+path = "projector.move.up"
 show_mode = 0
 force_type = 0
 
@@ -45,6 +81,22 @@ path = "projector.pan.right"
 show_mode = 0
 force_type = 0
 
+[sub_resource type="Texture2D" id="Texture2D_06861"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_tvjic")
+path = "projector.move.left"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_x48vx"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_tvjic")
+path = "projector.move.down"
+show_mode = 0
+force_type = 0
+
 [sub_resource type="Texture2D" id="Texture2D_acsir"]
 resource_local_to_scene = false
 resource_name = ""
@@ -53,16 +105,71 @@ path = "projector.move.right"
 show_mode = 0
 force_type = 0
 
+[sub_resource type="Texture2D" id="Texture2D_i5f54"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_tvjic")
+path = "projector.toggle"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_dar5l"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_tvjic")
+path = "projector.repair"
+show_mode = 0
+force_type = 0
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 47.0
+offset_top = 39.0
+offset_right = 47.0
+offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_47nge")
+script = ExtResource("2_nplhe")
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 263.0
+grow_horizontal = 2
+theme_type_variation = &"TitleLabel"
+text = "BURN VAMPIRES, BURN!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoToArenaLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 373.0
+offset_right = 1021.0
+offset_bottom = 426.0
+theme_type_variation = &"LargeLabel"
+text = "GO TO THE ARENA"
+
+[node name="GoToArenaPolygon" type="Polygon2D" parent="."]
+position = Vector2(16, 8)
+color = Color(0, 0.634278, 0.393727, 1)
+polygon = PackedVector2Array(794, 454, 740, 510, 721, 585, 734, 649, 767, 694, 818, 728, 872, 738, 938, 725, 979, 697, 1012, 649, 1024, 602, 1023, 553, 1006, 510, 965, 462, 932, 444, 890, 432, 837, 437)
+
+[node name="GoToArenaArea2D" type="Area2D" parent="GoToArenaPolygon"]
+position = Vector2(-136, 160)
+collision_mask = 3
+
+[node name="GoToArenaCollisionShape" type="CollisionShape2D" parent="GoToArenaPolygon/GoToArenaArea2D"]
+position = Vector2(1010, 425)
+shape = SubResource("CircleShape2D_728nn")
 
 [node name="MirrorPlayer" parent="." instance=ExtResource("2_e1yyq")]
+position = Vector2(283, 718)
 
 [node name="Control" type="Control" parent="MirrorPlayer"]
 layout_mode = 3
@@ -74,62 +181,69 @@ theme = ExtResource("1_47nge")
 [node name="Label" type="Label" parent="MirrorPlayer/Control"]
 layout_mode = 0
 offset_left = -60.0
-offset_top = -78.0
-offset_right = 67.0
-offset_bottom = -24.0
+offset_top = -100.0
+offset_right = 69.0
+offset_bottom = -25.0
+theme_type_variation = &"MirrorPlayerLabel"
 text = "Player 1"
 horizontal_alignment = 1
 
-[node name="Button1" type="TextureRect" parent="MirrorPlayer/Control"]
+[node name="GridContainer" type="GridContainer" parent="MirrorPlayer/Control"]
 layout_mode = 0
-offset_left = -51.0
-offset_top = -164.0
-offset_right = 49.0
-offset_bottom = -64.0
-texture = SubResource("Texture2D_x48vx")
+offset_left = -124.0
+offset_top = -270.0
+offset_right = 184.0
+offset_bottom = -66.0
+theme_override_constants/h_separation = -25
+theme_override_constants/v_separation = -25
+columns = 3
 
-[node name="Button2" type="TextureRect" parent="MirrorPlayer/Control"]
-layout_mode = 0
-offset_left = -70.0
-offset_top = -239.0
-offset_right = 30.0
-offset_bottom = -139.0
-texture = SubResource("Texture2D_5an7m")
+[node name="Button3" type="TextureRect" parent="MirrorPlayer/Control/GridContainer"]
+layout_mode = 2
+texture = SubResource("Texture2D_qcsis")
 
-[node name="Button3" type="TextureRect" parent="MirrorPlayer/Control"]
+[node name="Label" type="Label" parent="MirrorPlayer/Control/GridContainer/Button3"]
 layout_mode = 0
-offset_left = -149.0
-offset_top = -239.0
-offset_right = -49.0
-offset_bottom = -139.0
-texture = SubResource("Texture2D_nj7q0")
+offset_left = -87.0
+offset_top = -47.0
+offset_right = 50.0
+offset_bottom = 52.0
+text = "Tilt mirror left"
+horizontal_alignment = 1
+autowrap_mode = 2
 
-[node name="Button4" type="TextureRect" parent="MirrorPlayer/Control"]
-layout_mode = 0
-offset_left = -131.0
-offset_top = -164.0
-offset_right = -31.0
-offset_bottom = -64.0
-texture = SubResource("Texture2D_06861")
+[node name="Button2" type="TextureRect" parent="MirrorPlayer/Control/GridContainer"]
+layout_mode = 2
+texture = SubResource("Texture2D_h45e0")
 
-[node name="Button5" type="TextureRect" parent="MirrorPlayer/Control"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = -239.0
-offset_right = 110.0
-offset_bottom = -139.0
-texture = SubResource("Texture2D_xdell")
+[node name="Button5" type="TextureRect" parent="MirrorPlayer/Control/GridContainer"]
+layout_mode = 2
+texture = SubResource("Texture2D_au6ha")
 
-[node name="Button6" type="TextureRect" parent="MirrorPlayer/Control"]
+[node name="Label" type="Label" parent="MirrorPlayer/Control/GridContainer/Button5"]
 layout_mode = 0
-offset_left = 30.0
-offset_top = -164.0
-offset_right = 130.0
-offset_bottom = -64.0
-texture = SubResource("Texture2D_acsir")
+offset_left = 53.0
+offset_top = -48.0
+offset_right = 202.0
+offset_bottom = 20.0
+text = "Tilt mirror right"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button4" type="TextureRect" parent="MirrorPlayer/Control/GridContainer"]
+layout_mode = 2
+texture = SubResource("Texture2D_lq8wl")
+
+[node name="Button1" type="TextureRect" parent="MirrorPlayer/Control/GridContainer"]
+layout_mode = 2
+texture = SubResource("Texture2D_811dj")
+
+[node name="Button6" type="TextureRect" parent="MirrorPlayer/Control/GridContainer"]
+layout_mode = 2
+texture = SubResource("Texture2D_5c21c")
 
 [node name="ProjectorPlayer" parent="." instance=ExtResource("3_6b666")]
-position = Vector2(1124, 473)
+position = Vector2(1461, 715)
 
 [node name="Control" type="Control" parent="ProjectorPlayer"]
 layout_mode = 3
@@ -140,68 +254,102 @@ theme = ExtResource("1_47nge")
 
 [node name="Label" type="Label" parent="ProjectorPlayer/Control"]
 layout_mode = 0
-offset_left = -60.0
-offset_top = -78.0
-offset_right = 67.0
-offset_bottom = -24.0
-text = "Player 1"
+offset_left = -59.0
+offset_top = -103.0
+offset_right = 70.0
+offset_bottom = -28.0
+theme_type_variation = &"ProjectorPlayerLabel"
+text = "Player 2"
 horizontal_alignment = 1
 
-[node name="Button1" type="TextureRect" parent="ProjectorPlayer/Control"]
+[node name="GridContainer" type="GridContainer" parent="ProjectorPlayer/Control"]
 layout_mode = 0
-offset_left = -51.0
-offset_top = -164.0
-offset_right = 49.0
-offset_bottom = -64.0
-texture = SubResource("Texture2D_x48vx")
+offset_left = -128.0
+offset_top = -272.0
+offset_right = 122.0
+offset_bottom = -97.0
+theme_override_constants/h_separation = -25
+theme_override_constants/v_separation = -25
+columns = 3
 
-[node name="Button2" type="TextureRect" parent="ProjectorPlayer/Control"]
-layout_mode = 0
-offset_left = -70.0
-offset_top = -239.0
-offset_right = 30.0
-offset_bottom = -139.0
-texture = SubResource("Texture2D_5an7m")
-
-[node name="Button3" type="TextureRect" parent="ProjectorPlayer/Control"]
-layout_mode = 0
-offset_left = -149.0
-offset_top = -239.0
-offset_right = -49.0
-offset_bottom = -139.0
+[node name="Button3" type="TextureRect" parent="ProjectorPlayer/Control/GridContainer"]
+layout_mode = 2
 texture = SubResource("Texture2D_nj7q0")
 
-[node name="Button4" type="TextureRect" parent="ProjectorPlayer/Control"]
+[node name="Label" type="Label" parent="ProjectorPlayer/Control/GridContainer/Button3"]
 layout_mode = 0
-offset_left = -131.0
-offset_top = -164.0
-offset_right = -31.0
-offset_bottom = -64.0
-texture = SubResource("Texture2D_06861")
+offset_left = -91.0
+offset_top = -39.0
+offset_right = 76.0
+offset_bottom = 63.0
+text = "Pan projector left"
+horizontal_alignment = 1
+autowrap_mode = 2
 
-[node name="Button5" type="TextureRect" parent="ProjectorPlayer/Control"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = -239.0
-offset_right = 110.0
-offset_bottom = -139.0
+[node name="Button2" type="TextureRect" parent="ProjectorPlayer/Control/GridContainer"]
+layout_mode = 2
+texture = SubResource("Texture2D_5an7m")
+
+[node name="Button5" type="TextureRect" parent="ProjectorPlayer/Control/GridContainer"]
+layout_mode = 2
 texture = SubResource("Texture2D_xdell")
 
-[node name="Button6" type="TextureRect" parent="ProjectorPlayer/Control"]
+[node name="Label" type="Label" parent="ProjectorPlayer/Control/GridContainer/Button5"]
 layout_mode = 0
-offset_left = 30.0
-offset_top = -164.0
-offset_right = 130.0
-offset_bottom = -64.0
+offset_left = 46.0
+offset_top = -38.0
+offset_right = 221.0
+offset_bottom = 34.0
+text = "Pan projector right"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button4" type="TextureRect" parent="ProjectorPlayer/Control/GridContainer"]
+layout_mode = 2
+texture = SubResource("Texture2D_06861")
+
+[node name="Button1" type="TextureRect" parent="ProjectorPlayer/Control/GridContainer"]
+layout_mode = 2
+texture = SubResource("Texture2D_x48vx")
+
+[node name="Button6" type="TextureRect" parent="ProjectorPlayer/Control/GridContainer"]
+layout_mode = 2
 texture = SubResource("Texture2D_acsir")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 292.0
-grow_horizontal = 2
-theme_type_variation = &"TitleLabel"
-text = "BURN VAMPIRES, BURN!"
+[node name="GridContainer2" type="GridContainer" parent="ProjectorPlayer/Control"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 56.0
+offset_right = 260.0
+offset_bottom = 156.0
+columns = 2
+
+[node name="Button1" type="TextureRect" parent="ProjectorPlayer/Control/GridContainer2"]
+layout_mode = 2
+texture = SubResource("Texture2D_i5f54")
+
+[node name="Label" type="Label" parent="ProjectorPlayer/Control/GridContainer2/Button1"]
+layout_mode = 0
+offset_left = -174.0
+offset_top = 19.0
+offset_right = 22.0
+offset_bottom = 86.0
+text = "Toggle projector on/off"
 horizontal_alignment = 1
-vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Button2" type="TextureRect" parent="ProjectorPlayer/Control/GridContainer2"]
+layout_mode = 2
+texture = SubResource("Texture2D_dar5l")
+
+[node name="Label" type="Label" parent="ProjectorPlayer/Control/GridContainer2/Button2"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 38.0
+offset_right = 281.0
+offset_bottom = 70.0
+text = "Repair projector"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="body_entered" from="GoToArenaPolygon/GoToArenaArea2D" to="." method="_on_go_to_arena_area_2d_body_entered"]

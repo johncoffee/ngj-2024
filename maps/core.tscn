@@ -45,6 +45,7 @@ shape = SubResource("CircleShape2D_iqmug")
 debug_color = Color(0.894118, 0.298039, 0.309804, 0.419608)
 
 [node name="Mask" type="Sprite2D" parent="."]
+z_index = 2
 material = SubResource("ShaderMaterial_qm8fn")
 position = Vector2(0, -86)
 scale = Vector2(3, 3)
@@ -53,6 +54,7 @@ region_enabled = true
 region_rect = Rect2(19, 5, 26, 26)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
 position = Vector2(0, -44)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ujxgj")
