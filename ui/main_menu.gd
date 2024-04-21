@@ -9,3 +9,10 @@ func start_game():
 	EzTransitions.set_textures("res://addons/ez_transitions/images/black_texture.png", "res://addons/ez_transitions/images/black_texture.png")
 	EzTransitions.set_types(1, 1)
 	EzTransitions.change_scene("res://maps/sandbox.tscn")
+
+
+func _process(delta: float):
+	if $Projector2.broken:
+		$AnimationPlayer.play("projector_pulsate")
+	else:
+		$AnimationPlayer.stop()

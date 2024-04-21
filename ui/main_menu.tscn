@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b3klo0a4hc6ed"]
+[gd_scene load_steps=28 format=3 uid="uid://b3klo0a4hc6ed"]
 
 [ext_resource type="Theme" uid="uid://bt3vq2xxetwgb" path="res://theme/theme.tres" id="1_47nge"]
 [ext_resource type="PackedScene" uid="uid://yrrfmbliq41n" path="res://players/mirror_player.tscn" id="2_e1yyq"]
@@ -130,6 +130,43 @@ path = "projector.repair"
 show_mode = 0
 force_type = 0
 
+[sub_resource type="Animation" id="Animation_veiw5"]
+resource_name = "projector_pulsate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Projector2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tfcri"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Projector2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tplxi"]
+_data = {
+"RESET": SubResource("Animation_tfcri"),
+"projector_pulsate": SubResource("Animation_veiw5")
+}
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -173,14 +210,34 @@ grow_horizontal = 2
 bbcode_enabled = true
 text = "[center][font_size=38]Arena, [font_size=36]Cooperation, [font_size=34]2 players, [font_size=32]vampires, [font_size=30]zombies, [font_size=28]free to play, [font_size=26]chill, [font_size=24]hardcore, [font_size=22]cry, [font_size=20]Godot"
 
-[node name="GoToArenaLabel" type="Label" parent="."]
+[node name="FixMeLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 980.0
 offset_top = 394.0
 offset_right = 1241.0
 offset_bottom = 447.0
 theme_type_variation = &"LargeLabel"
-text = "FIX ME!!"
+text = "1. FIX ME!"
+horizontal_alignment = 1
+
+[node name="ReflectMeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 572.0
+offset_top = 451.0
+offset_right = 833.0
+offset_bottom = 504.0
+theme_type_variation = &"LargeLabel"
+text = "2. REFLECT ME!"
+horizontal_alignment = 1
+
+[node name="ChargeMeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 762.0
+offset_top = 883.0
+offset_right = 1023.0
+offset_bottom = 936.0
+theme_type_variation = &"LargeLabel"
+text = "3. CHARGE ME!"
 horizontal_alignment = 1
 
 [node name="MirrorPlayer" parent="." instance=ExtResource("2_e1yyq")]
@@ -396,5 +453,10 @@ position = Vector2(738, 566)
 damage = 5.0
 regen = 2.08165e-12
 target = NodePath("../Core")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tplxi")
+}
 
 [connection signal="charged" from="Core" to="." method="start_game"]
