@@ -47,7 +47,7 @@ resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("3_tvjic")
 path = "mirror.move.left"
-show_mode = 0
+show_mode = 1
 force_type = 0
 
 [sub_resource type="Texture2D" id="Texture2D_811dj"]
@@ -55,7 +55,7 @@ resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("3_tvjic")
 path = "mirror.move.down"
-show_mode = 0
+show_mode = 1
 force_type = 0
 
 [sub_resource type="Texture2D" id="Texture2D_5c21c"]
@@ -63,7 +63,7 @@ resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("3_tvjic")
 path = "mirror.move.right"
-show_mode = 0
+show_mode = 1
 force_type = 0
 
 [sub_resource type="Texture2D" id="Texture2D_nj7q0"]
@@ -95,7 +95,7 @@ resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("3_tvjic")
 path = "projector.move.left"
-show_mode = 0
+show_mode = 1
 force_type = 0
 
 [sub_resource type="Texture2D" id="Texture2D_x48vx"]
@@ -103,7 +103,7 @@ resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("3_tvjic")
 path = "projector.move.down"
-show_mode = 0
+show_mode = 1
 force_type = 0
 
 [sub_resource type="Texture2D" id="Texture2D_acsir"]
@@ -111,7 +111,7 @@ resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("3_tvjic")
 path = "projector.move.right"
-show_mode = 0
+show_mode = 1
 force_type = 0
 
 [sub_resource type="Texture2D" id="Texture2D_i5f54"]
@@ -130,6 +130,21 @@ path = "projector.repair"
 show_mode = 0
 force_type = 0
 
+[sub_resource type="Animation" id="Animation_tfcri"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Projector2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_veiw5"]
 resource_name = "projector_pulsate"
 loop_mode = 1
@@ -144,21 +159,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_tfcri"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Projector2:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tplxi"]
@@ -263,11 +263,9 @@ horizontal_alignment = 1
 [node name="GridContainer" type="GridContainer" parent="MirrorPlayer/Control"]
 layout_mode = 0
 offset_left = -124.0
-offset_top = -270.0
+offset_top = -302.0
 offset_right = 184.0
-offset_bottom = -66.0
-theme_override_constants/h_separation = -25
-theme_override_constants/v_separation = -25
+offset_bottom = -98.0
 columns = 3
 
 [node name="Button3" type="TextureRect" parent="MirrorPlayer/Control/GridContainer"]
@@ -337,11 +335,9 @@ horizontal_alignment = 1
 [node name="GridContainer" type="GridContainer" parent="ProjectorPlayer/Control"]
 layout_mode = 0
 offset_left = -128.0
-offset_top = -272.0
-offset_right = 122.0
-offset_bottom = -97.0
-theme_override_constants/h_separation = -25
-theme_override_constants/v_separation = -25
+offset_top = -296.0
+offset_right = 180.0
+offset_bottom = -92.0
 columns = 3
 
 [node name="Button3" type="TextureRect" parent="ProjectorPlayer/Control/GridContainer"]
