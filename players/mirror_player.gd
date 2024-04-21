@@ -27,6 +27,9 @@ func _ready() -> void:
 	$Health.max_value = health
 
 
+var rotation_input: float
+
+
 func _process(delta: float) -> void:
 	$Health.value = current_health
 	
@@ -40,8 +43,10 @@ func _process(delta: float) -> void:
 	velocity = movement * speed
 	move_and_slide()
 	
-	var rotation_dir = Input.get_axis("mirror.move.rotate.left", "mirror.move.rotate.right")
-	$MirrorRoot.rotate(rotation_dir * rotation_speed * delta)
+	var new_rotation_input = Input.get_axis("mirror.move.rotate.left", "mirror.move.rotate.right")
+	if is_zero_approx(new_rotation_input): rotation_input = new_rotation_input
+	else: rotation_input = lerpf(rotation_input, new_rotation_input, delta * 2)
+	$MirrorRoot.rotate(rotation_input * rotation_speed * delta)
 	
 	for light_source in light_sources:
 		var direction: Vector2 = (position - light_source.position).normalized()

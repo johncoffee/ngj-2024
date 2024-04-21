@@ -67,7 +67,7 @@ _data = {
 script = ExtResource("1_e4ygt")
 damage = 200.0
 speed = 250.0
-rotation_speed = 3.5
+rotation_speed = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uoh81")
