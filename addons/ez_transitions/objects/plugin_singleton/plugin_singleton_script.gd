@@ -23,24 +23,24 @@ func _ready() -> void:
 	add_child(TRANSITION_OVERLAY)
 	
 	if (plugin_debug_mode): # Checking if the plugin's debug mode is enabled.
-		print_rich("[color=green]Successfully added global TransitionOverlay.") # Debug print.
+		print_rich("Successfully added global TransitionOverlay.") # Debug print.
 	
 func plugin_toggle_debug_mode(enabled: bool) -> void:
 	# Enables or disables the plugin's debug mode.
 	plugin_debug_mode = enabled
-	print_rich("[color=red]Successfully updated EzTransitions debug mode. New value: %s" % str(enabled)) # Debug print.
+	print_rich("Successfully updated EzTransitions debug mode. New value: %s" % str(enabled)) # Debug print.
 	
 func plugin_toggle_transitions(enabled: bool) -> void:
 	# Enables or disables the plugin's transitions.
 	plugin_transitions_enabled = enabled
 	if (plugin_debug_mode): # Checking if the plugin's debug mode is enabled.
-		print_rich("[color=red]Successfully updated EzTransitions transitions mode. New value: %s" % str(enabled)) # Debug print.
+		print_rich("Successfully updated EzTransitions transitions mode. New value: %s" % str(enabled)) # Debug print.
 	
 func plugin_set_speed_scale(new_speed_scale: float) -> void:
 	# Sets the plugin's speed scale to the given value.
 	plugin_speed_scale = new_speed_scale
 	if (plugin_debug_mode): # Checking if the plugin's debug mode is enabled.
-		print_rich("[color=red]Successfully updated EzTransitions speed scale. New value: %s" % str(new_speed_scale)) # Debug print.
+		print_rich("Successfully updated EzTransitions speed scale. New value: %s" % str(new_speed_scale)) # Debug print.
 	
 func set_easing(intro_ease: Tween.EaseType, outro_ease: Tween.EaseType) -> void:
 	# Updates the TransitionOverlay's intro and outro easing.
@@ -79,12 +79,12 @@ func change_scene(target_scene_path: String) -> void:
 		get_tree().change_scene_to_file(target_scene_path) # Changing scene.
 		
 		if (plugin_debug_mode): # Checking if the plugin's debug mode is enabled.
-			print_rich("[color=red]Transitions disabled! Skipping the transition and changing scene to: %s" % target_scene_path) # Debug print.
+			print_rich("Transitions disabled! Skipping the transition and changing scene to: %s" % target_scene_path) # Debug print.
 			
 		return # Stopping the code right here.
 		
 	if (plugin_debug_mode): # Checking if the plugin's debug mode is enabled.
-		print_rich("[color=red]Transition started. About to change scene to: %s" % target_scene_path) # Debug print.
+		print_rich("Transition started. About to change scene to: %s" % target_scene_path) # Debug print.
 		
 	# Changes scene using the TransitionOverlay.
 	TRANSITION_OVERLAY.play_intro() # Playing the intro.
