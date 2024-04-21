@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 
+signal dead
+
+
 @export var health: = 100
 @export var damage: float
 @export var speed: float
@@ -8,7 +11,15 @@ extends CharacterBody2D
 
 
 var light_sources: Dictionary
-var current_health: float
+var current_health: float:
+	set(value):
+		value = clampf(value, 0, health)
+		if is_equal_approx(value, current_health): return
+		current_health = value
+		
+		if is_equal_approx(0.0, current_health):
+			dead.emit()
+			set_process(false)
 
 
 func _ready() -> void:
@@ -73,12 +84,3 @@ func update_animations(input: Vector2, delta: float) -> void:
 
 func apply_damage(value: float) -> void:
 	current_health -= value
-	if current_health <= 0.0:
-		process_mode = Node.PROCESS_MODE_DISABLED
-		EzTransitions.set_easing(0, 1)
-		EzTransitions.set_trans(0, 0)
-		EzTransitions.set_timers(1.5, 0, 1.5)
-		EzTransitions.set_reverse(false, false)
-		EzTransitions.set_textures("res://addons/ez_transitions/images/black_texture.png", "res://addons/ez_transitions/images/black_texture.png")
-		EzTransitions.set_types(3, 4)
-		EzTransitions.change_scene("res://ui/game_over.tscn")

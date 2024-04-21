@@ -1,18 +1,32 @@
 extends PhysicsBody2D
 
 
+signal charged
+signal destroyed
+
+
 @export var max_charge = 10000
-@export var initial_charge = 4000
 @onready var bar: = $ProgressBar
 
 
-var charge: float
+@export var charge: float:
+	set(value):
+		value = clampf(value, 0, max_charge)
+		if is_equal_approx(charge, value): return
+		charge = value
+		# So what?
+		$ProgressBar.max_value = max_charge
+		$ProgressBar.value = charge
+		
+		if is_equal_approx(charge, 0.0):
+			destroyed.emit()
+			set_process(false)
+		elif is_equal_approx(charge, max_charge):
+			set_process(false)
+			charged.emit()
+
+
 var under_attack := false
-
-
-func _ready() -> void:
-	bar.max_value = max_charge
-	charge = initial_charge
 
 
 func apply_damage(value: float) -> void:
@@ -27,21 +41,9 @@ func apply_charge(value: float) -> void:
 
 
 func _process(_delta: float) -> void:
-	bar.value = charge
 	$Mask.material.set_shader_parameter("fill_amount", charge / max_charge * 0.5 + 0.5)
 
 	if not $AudioStreamPlayer2D.playing and under_attack:
 		$AudioStreamPlayer2D.play()
 	elif $AudioStreamPlayer2D.playing and not under_attack:
 		$AudioStreamPlayer2D.stop()
-
-	if charge <= 0.0:
-		process_mode = Node.PROCESS_MODE_DISABLED
-		EzTransitions.set_easing(0, 1)
-		EzTransitions.set_trans(0, 0)
-		EzTransitions.set_timers(1.5, 0, 1.5)
-		EzTransitions.set_reverse(false, false)
-		EzTransitions.set_textures("res://addons/ez_transitions/images/black_texture.png", "res://addons/ez_transitions/images/black_texture.png")
-		EzTransitions.set_types(3, 4)
-		EzTransitions.change_scene("res://ui/game_over.tscn")
-	if charge >= max_charge: push_error("NICE JOB")

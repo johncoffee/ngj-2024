@@ -156,9 +156,22 @@ anchor_right = 1.0
 offset_bottom = 263.0
 grow_horizontal = 2
 theme_type_variation = &"TitleLabel"
-text = "BURN VAMPIRES, BURN!"
+text = "HELL OF MIRRORS"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -495.0
+offset_top = 166.0
+offset_right = 495.0
+offset_bottom = 240.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center][font_size=38]Arena, [font_size=36]Cooperation, [font_size=34]2 players, [font_size=32]vampires, [font_size=30]zombies, [font_size=28]free to play, [font_size=26]chill, [font_size=24]hardcore, [font_size=22]cry, [font_size=20]Godot"
 
 [node name="GoToArenaLabel" type="Label" parent="."]
 layout_mode = 0
@@ -371,7 +384,7 @@ broken = true
 [node name="Core" parent="." instance=ExtResource("7_do7aw")]
 position = Vector2(893, 777)
 max_charge = 300
-initial_charge = 150
+charge = 150.0
 
 [node name="Vampire" parent="." instance=ExtResource("8_p8u5f")]
 position = Vector2(397, 851)
@@ -383,3 +396,5 @@ position = Vector2(738, 566)
 damage = 5.0
 regen = 2.08165e-12
 target = NodePath("../Core")
+
+[connection signal="charged" from="Core" to="." method="start_game"]

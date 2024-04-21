@@ -81,6 +81,8 @@ scale = Vector2(1.7, 1.7)
 texture = ExtResource("3_bubow")
 
 [node name="Core" parent="." instance=ExtResource("2_7f5ms")]
+position = Vector2(951, 556)
+charge = 1000.0
 
 [node name="ProjectorPlayer" parent="." instance=ExtResource("4_c0g6v")]
 position = Vector2(430, 241)
@@ -101,18 +103,25 @@ platform_on_leave = 2
 [node name="Projector1" parent="Projectors" instance=ExtResource("6_ybpnd")]
 position = Vector2(413, 557)
 rotation = -2.34103
+hp = 83.5112
 
 [node name="Projector2" parent="Projectors" instance=ExtResource("6_ybpnd")]
 position = Vector2(964, 107)
 rotation = 0.216385
+light_on = true
+hp = 60.1127
 
 [node name="Projector3" parent="Projectors" instance=ExtResource("6_ybpnd")]
 position = Vector2(1468, 565)
 rotation = 2.2169
+hp = 29.3148
+broken = true
 
 [node name="Projector4" parent="Projectors" instance=ExtResource("6_ybpnd")]
 position = Vector2(959, 976)
 rotation = 3.02847
+light_on = true
+hp = 52.0481
 
 [node name="Area2D" type="StaticBody2D" parent="."]
 collision_layer = 8
@@ -125,3 +134,7 @@ shape = SubResource("ConcavePolygonShape2D_f6ro5")
 
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("9_8xe0c")
+
+[connection signal="charged" from="Core" to="LevelManager" method="show_game_over"]
+[connection signal="destroyed" from="Core" to="LevelManager" method="show_game_over"]
+[connection signal="dead" from="MirrorPlayer" to="LevelManager" method="show_game_over"]
