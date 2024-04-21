@@ -86,6 +86,7 @@ animations = [{
 
 [node name="Core" type="CharacterBody2D"]
 script = ExtResource("1_fp401")
+max_charge = 5000
 metadata/_edit_vertical_guides_ = [945.0, 937.0]
 metadata/_edit_horizontal_guides_ = [589.0]
 
