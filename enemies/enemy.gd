@@ -10,7 +10,13 @@ class_name Enemy
 @export var speed:= 30
 
 
-var current_health: float
+var is_damaged: bool
+var current_health: float:
+	set(value):
+		if value < current_health:
+			$Fire.visible = true
+			get_tree().create_timer(0.5).timeout.connect(func(): $Fire.visible = false)
+		current_health = value
 
 
 func _ready() -> void:
