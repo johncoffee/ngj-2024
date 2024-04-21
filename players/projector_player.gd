@@ -16,6 +16,9 @@ func _process(delta):
 			"projector.move.left", "projector.move.right",
 			"projector.move.up", "projector.move.down",
 	)
+
+	update_animations(direction, delta)
+
 	velocity = direction * speed
 	move_and_slide()
 
@@ -41,3 +44,12 @@ func _on_projector_detector_area_entered(area: Area2D):
 func _on_projector_detector_area_exited(area: Area2D):
 	if area is Projector:
 		close_projector = null
+
+
+func update_animations(input: Vector2, delta: float) -> void:
+	if input.length_squared() < 0.0001:
+		$AnimationPlayer.play("hovering")
+	else:
+		$AnimationPlayer.play("flying")
+	input.y *= -1
+	$BlueRockets.rotation = lerp_angle($BlueRockets.rotation, input.angle_to(Vector2.DOWN), delta * 10)

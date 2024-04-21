@@ -1,14 +1,70 @@
-[gd_scene load_steps=6 format=3 uid="uid://bf1y1a0oplbs1"]
+[gd_scene load_steps=11 format=3 uid="uid://bf1y1a0oplbs1"]
 
 [ext_resource type="Script" path="res://players/projector_player.gd" id="1_4xl8a"]
 [ext_resource type="Texture2D" uid="uid://5syj4lsyhv0v" path="res://textures/projector_player/blue_head.png" id="2_ds7or"]
-[ext_resource type="Material" uid="uid://xgxt3sn68c6q" path="res://players/health_particles.tres" id="3_j7yk1"]
+[ext_resource type="Texture2D" uid="uid://trjdciv0moq1" path="res://textures/projector_player/blue_rockets.png" id="3_kmctg"]
+[ext_resource type="Material" path="res://players/health_particles.tres" id="4_j7yk1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmjrj"]
-size = Vector2(64, 64)
+size = Vector2(96, 96)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6qwll"]
-radius = 58.0
+radius = 64.0
+
+[sub_resource type="Animation" id="Animation_ojere"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mi46v"]
+resource_name = "flying"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_57od4"]
+resource_name = "hovering"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2.08165e-12, -4), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0uhqa"]
+_data = {
+"RESET": SubResource("Animation_ojere"),
+"flying": SubResource("Animation_mi46v"),
+"hovering": SubResource("Animation_57od4")
+}
 
 [node name="ProjectorPlayer" type="CharacterBody2D"]
 collision_layer = 2
@@ -18,7 +74,13 @@ script = ExtResource("1_4xl8a")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mmjrj")
 
+[node name="BlueRockets" type="Sprite2D" parent="."]
+position = Vector2(0, 15)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_kmctg")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_ds7or")
 
 [node name="ProjectorDetector" type="Area2D" parent="."]
@@ -26,8 +88,13 @@ texture = ExtResource("2_ds7or")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectorDetector"]
 shape = SubResource("CircleShape2D_6qwll")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0uhqa")
+}
+
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
 emitting = false
-process_material = ExtResource("3_j7yk1")
+process_material = ExtResource("4_j7yk1")
 one_shot = true
