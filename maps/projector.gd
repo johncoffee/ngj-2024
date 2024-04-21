@@ -47,7 +47,7 @@ func _ready():
 	area_exited.connect(_on_projector_area_exited)
 
 
-func _process(delta):
+func _process(_delta):
 	if $AudioStreamPlayer2D.playing and (hp <= 0 or not under_attack):
 		$AudioStreamPlayer2D.stop()
 	elif under_attack and not $AudioStreamPlayer2D.playing:
