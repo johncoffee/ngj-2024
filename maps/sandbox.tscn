@@ -20,7 +20,7 @@ segments = PackedVector2Array(1000, 150, 800, 150, 800, 150, 600, 200, 600, 200,
 _spawnable_scenes = PackedStringArray("res://enemies/vampire.tscn")
 spawn_path = NodePath("../VampireEnemyRoot")
 script = ExtResource("1_swf8v")
-interval = 10.0
+interval = 9.0
 enemy_target = NodePath("../Core")
 
 [node name="SpawnPoint1" type="Node2D" parent="VampireSpawner"]
@@ -51,7 +51,7 @@ position = Vector2(657, 332)
 _spawnable_scenes = PackedStringArray("res://enemies/frankenstein.tscn")
 spawn_path = NodePath("../FrankensteinEnemyRoot")
 script = ExtResource("1_swf8v")
-interval = 10.0
+interval = 8.0
 enemy_target = NodePath("../MirrorPlayer")
 
 [node name="SpawnPoint1" type="Node2D" parent="FrankensteinSpawner"]
