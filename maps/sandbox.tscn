@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://qmlivrqeg4pq"]
+[gd_scene load_steps=12 format=3 uid="uid://qmlivrqeg4pq"]
 
 [ext_resource type="Script" path="res://enemies/enemy_spawner.gd" id="1_swf8v"]
 [ext_resource type="PackedScene" uid="uid://c7g2oxwiwgakd" path="res://maps/core.tscn" id="2_7f5ms"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://i0le6kh68aio" path="res://ui/ui.tscn" id="8_ap3mm"]
 [ext_resource type="Script" path="res://maps/level-manager.gd" id="9_8xe0c"]
 [ext_resource type="PackedScene" uid="uid://dju5wkp48o4u3" path="res://enemies/bat_swarm.tscn" id="9_nar3i"]
+[ext_resource type="AudioStream" uid="uid://d62xndenv856" path="res://sounds/vampire_scream.wav" id="10_a4tec"]
 
 [sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_f6ro5"]
 segments = PackedVector2Array(1000, 150, 800, 150, 800, 150, 600, 200, 600, 200, 470, 300, 470, 300, 420, 450, 420, 450, 400, 600, 400, 600, 440, 750, 440, 750, 600, 900, 600, 900, 800, 970, 800, 970, 1000, 980, 1000, 980, 1200, 940, 1200, 940, 1400, 800, 1400, 800, 1480, 660, 1480, 660, 1480, 550, 1480, 550, 1420, 350, 1420, 350, 1200, 200, 1200, 200, 1000, 150)
@@ -134,6 +135,10 @@ shape = SubResource("ConcavePolygonShape2D_f6ro5")
 
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("9_8xe0c")
+
+[node name="VampireScream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_a4tec")
+volume_db = -9.0
 
 [connection signal="charged" from="Core" to="LevelManager" method="show_game_over"]
 [connection signal="destroyed" from="Core" to="LevelManager" method="show_game_over"]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://players/projector_player.gd" id="1_4xl8a"]
 [ext_resource type="Texture2D" uid="uid://5syj4lsyhv0v" path="res://textures/projector_player/blue_head.png" id="2_ds7or"]
 [ext_resource type="Texture2D" uid="uid://trjdciv0moq1" path="res://textures/projector_player/blue_rockets.png" id="3_kmctg"]
-[ext_resource type="Material" uid="uid://xgxt3sn68c6q" path="res://players/health_particles.tres" id="4_j7yk1"]
+[ext_resource type="Material" path="res://players/health_particles.tres" id="4_j7yk1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmjrj"]
 size = Vector2(96, 96)

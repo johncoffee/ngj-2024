@@ -6,6 +6,12 @@ extends Node
 
 func _ready():
 	EnemyEvents.enemy_died.connect(_handle_enemy_died)
+	
+	get_tree().create_timer(randf_range(10, 15)).timeout.connect(_on_VampireScream_timeout)
+
+func _on_VampireScream_timeout():
+	$"../VampireScream".play()
+	get_tree().create_timer(randf_range(10, 20)).timeout.connect(_on_VampireScream_timeout)
 
 
 func _handle_enemy_died():
