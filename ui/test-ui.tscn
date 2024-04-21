@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://i0le6kh68aio"]
 
-[ext_resource type="Script" path="res://ui/ui-manager.gd" id="1_f05r3"]
+[ext_resource type="Script" path="res://ui/ui_manager.gd" id="1_f05r3"]
 [ext_resource type="LabelSettings" uid="uid://cjbwagdplrbd2" path="res://ui/new_label_settings.tres" id="2_eanc5"]
 
 [node name="Test-ui" type="Node3D"]

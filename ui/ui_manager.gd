@@ -1,5 +1,7 @@
 extends Node
 
+class_name UIManager
+
 var score = 0
 
 func _ready():
@@ -15,11 +17,6 @@ func _ready():
 	tutorialCanvasLayer.scale = Vector2(2, 2)
 	tween.tween_property(tutorialCanvasLayer, "offset:x", 0, 0.66)
 	tween.tween_property(tutorialCanvasLayer, "scale", Vector2(1,1), 0.66)
-
-func _process(_delta):
-	# maps to space/enter
-	if Input.is_action_just_pressed("ui_accept"):
-		add_score(1)
 
 func hide_after(delay_time: float):
 	await get_tree().create_timer(delay_time).timeout
