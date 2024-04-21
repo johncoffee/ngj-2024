@@ -65,7 +65,7 @@ animations = [{
 
 [node name="Vampire" type="CharacterBody2D"]
 script = ExtResource("1_l58px")
-damage = 35.0
+damage = 50.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7doxv")

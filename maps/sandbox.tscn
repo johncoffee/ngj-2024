@@ -83,7 +83,8 @@ texture = ExtResource("3_bubow")
 
 [node name="Core" parent="." instance=ExtResource("2_7f5ms")]
 position = Vector2(951, 556)
-charge = 1000.0
+max_charge = 6500
+charge = 800.0
 
 [node name="ProjectorPlayer" parent="." instance=ExtResource("4_c0g6v")]
 position = Vector2(430, 241)
