@@ -9,7 +9,9 @@ class_name Enemy
 @export var target: Node
 @export var speed:= 30
 
+
 var current_health: float
+
 
 func _ready() -> void:
 	current_health = health
