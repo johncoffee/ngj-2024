@@ -1,5 +1,6 @@
 Bjørn Højlund
 Davide Di Staso
+Gabriel Gallardo-Alarcon
 Julian
 Nikita Blizniuk
 Rémi Verschelde

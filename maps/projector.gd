@@ -29,8 +29,11 @@ var under_attack := false
 		broken = value
 		if broken:
 			light_on = false
-			$ProgressBar.modulate = Color.WHITE
-			$SpriteClosed.modulate = Color.DIM_GRAY
+			$SpriteClosed.visible = false
+			$SpriteBroken.visible = true
+		else:
+			light_on = light_on  # Takes care of setting right sprite visibility.
+			$SpriteBroken.visible = false
 
 
 func _ready():

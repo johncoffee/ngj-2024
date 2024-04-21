@@ -16,7 +16,7 @@ Vampires attack the core to deplete its charge (energy vampires, duh), while zom
   * Gamepad 2: D-pad/Left stick for movement, bumpers to pan projectors, Xbox A to toggle lights, Xbox X to repair projectors.
   * Keyboard: Numpad arrows for movement, Home/PageUp to pan the mirror, Enter/Return to toggle lights, Numpad + to repair projectors.
 
-Made at Nordic Game Jam 2024 by Bjørn, Davide, Julian, Nikita, and Rémi.
+Made at Nordic Game Jam 2024 by Bjørn, Davide, Gabriel, Julian, Nikita, and Rémi.
 
 ### License
 

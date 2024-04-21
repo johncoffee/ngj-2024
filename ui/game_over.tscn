@@ -44,7 +44,7 @@ text = "Play again"
 layout_mode = 2
 focus_neighbor_left = NodePath("../PlayAgainButton")
 focus_previous = NodePath("../PlayAgainButton")
-text = "Quit to Desktop"
+text = "Quit to Menu"
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/GoToMainMenu" to="." method="_on_go_to_main_menu_pressed"]
