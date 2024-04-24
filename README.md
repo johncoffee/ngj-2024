@@ -23,9 +23,10 @@ Made at Nordic Game Jam 2024 by Bjørn, Davide, Gabriel, Julian, Nikita, and Ré
 Code and scenes are provided under the MIT license.
 Art assets are under CC BY 4.0.
 
-### How to upload build to itch.io
+### How to upload builds to itch.io
 
-Run `./upload_build.sh` or `sh upload_build.sh` with one of the three arguments:
+Run `./upload_build.sh` or `sh upload_build.sh` with each of these arguments:
 - windows
 - linux
-- osx-universal
+- macos
+- web
