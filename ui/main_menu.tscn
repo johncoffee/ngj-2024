@@ -172,18 +172,15 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 47.0
-offset_top = 39.0
-offset_right = 47.0
-offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_47nge")
 script = ExtResource("2_nplhe")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(913, 501)
+position = Vector2(-30, 0)
 texture = SubResource("GradientTexture2D_52684")
+centered = false
 metadata/_edit_group_ = true
 
 [node name="TitleLabel" type="Label" parent="."]
@@ -210,6 +207,18 @@ grow_horizontal = 2
 bbcode_enabled = true
 text = "[center][font_size=38]Arena, [font_size=36]Cooperation, [font_size=34]2 players, [font_size=32]vampires, [font_size=30]zombies, [font_size=28]free to play, [font_size=26]chill, [font_size=24]hardcore, [font_size=22]cry, [font_size=20]Godot"
 
+[node name="Fullscreen" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -271.0
+offset_top = 55.0
+offset_right = -57.0
+offset_bottom = 127.0
+grow_horizontal = 0
+text = "Fullscreen (F10)"
+
 [node name="FixMeLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 980.0
@@ -222,19 +231,19 @@ horizontal_alignment = 1
 
 [node name="ReflectMeLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 572.0
-offset_top = 451.0
-offset_right = 833.0
-offset_bottom = 504.0
+offset_left = 569.0
+offset_top = 394.0
+offset_right = 830.0
+offset_bottom = 447.0
 theme_type_variation = &"LargeLabel"
 text = "2. REFLECT ME!"
 horizontal_alignment = 1
 
 [node name="ChargeMeLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 762.0
+offset_left = 830.0
 offset_top = 883.0
-offset_right = 1023.0
+offset_right = 1091.0
 offset_bottom = 936.0
 theme_type_variation = &"LargeLabel"
 text = "3. CHARGE ME!"
@@ -262,9 +271,9 @@ horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="MirrorPlayer/Control"]
 layout_mode = 0
-offset_left = -124.0
+offset_left = -154.0
 offset_top = -302.0
-offset_right = 184.0
+offset_right = 154.0
 offset_bottom = -98.0
 columns = 3
 
@@ -334,10 +343,10 @@ horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="ProjectorPlayer/Control"]
 layout_mode = 0
-offset_left = -128.0
-offset_top = -296.0
-offset_right = 180.0
-offset_bottom = -92.0
+offset_left = -154.0
+offset_top = -300.0
+offset_right = 154.0
+offset_bottom = -96.0
 columns = 3
 
 [node name="Button3" type="TextureRect" parent="ProjectorPlayer/Control/GridContainer"]
@@ -386,10 +395,10 @@ texture = SubResource("Texture2D_acsir")
 
 [node name="GridContainer2" type="GridContainer" parent="ProjectorPlayer/Control"]
 layout_mode = 0
-offset_left = 56.0
-offset_top = 56.0
-offset_right = 260.0
-offset_bottom = 156.0
+offset_left = -100.0
+offset_top = 80.0
+offset_right = 104.0
+offset_bottom = 180.0
 columns = 2
 
 [node name="Button1" type="TextureRect" parent="ProjectorPlayer/Control/GridContainer2"]
@@ -421,8 +430,8 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Projector" parent="." instance=ExtResource("6_jtdae")]
-position = Vector2(113, 895)
-rotation = -2.3809
+position = Vector2(177, 909)
+rotation = -2.53073
 randomised = false
 light_on = true
 hp = 100.0
@@ -435,17 +444,17 @@ hp = 50.0
 broken = true
 
 [node name="Core" parent="." instance=ExtResource("7_do7aw")]
-position = Vector2(893, 777)
+position = Vector2(960, 777)
 max_charge = 300
 charge = 150.0
 
 [node name="Vampire" parent="." instance=ExtResource("8_p8u5f")]
-position = Vector2(397, 851)
+position = Vector2(485, 817)
 damage = 5.0
 regen = 2.08165e-12
 
 [node name="Vampire2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_p8u5f")]
-position = Vector2(738, 566)
+position = Vector2(743, 611)
 damage = 5.0
 regen = 2.08165e-12
 target = NodePath("../Core")
@@ -455,4 +464,5 @@ libraries = {
 "": SubResource("AnimationLibrary_tplxi")
 }
 
+[connection signal="pressed" from="Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="charged" from="Core" to="." method="start_game"]

@@ -82,7 +82,7 @@ alignment = 2
 
 [node name="Label" type="Label" parent="TutorialCanvasLayer/Control/BoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Arrow keys to move"
+text = "Numpad keys to move"
 
 [node name="UIManager" type="Node" parent="."]
 unique_name_in_owner = true

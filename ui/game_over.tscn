@@ -25,7 +25,9 @@ alignment = 1
 [node name="GameOverLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"TitleLabel"
-text = "YOU DIED!"
+text = "YOU DIED!
+(Or you won, we ran out
+of time to implement it ;))"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
